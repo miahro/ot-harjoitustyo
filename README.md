@@ -15,3 +15,4 @@ Tehtävissä on harjoiteltu esimerkiksi
 - muutosten perumista
 - etärepositorion kytkemistä paikalliseen repositorioon
 
+**tehtävä 16** muutos
