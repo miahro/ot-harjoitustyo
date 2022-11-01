@@ -1,0 +1,114 @@
+commit 17b126dc4401b240993ff774d12141d60eec37bc
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:53:04 2022 +0200
+
+    renamed file2 and deleted file1
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 9a34c5364fad5f5c6154ae6948c3fe585ae63043
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:46:57 2022 +0200
+
+    lisätty file1, file2 ja file3
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 70329f8ab133a6553092413e790086fa2e24b664
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:37:41 2022 +0200
+
+    muutoksia eka.txt ja kolmas.txt
+
+ eka.txt    | 3 ++-
+ kolmas.txt | 3 +++
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+commit 8dafe997da9c0041c369c4764059961966c579a8
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:33:25 2022 +0200
+
+    tiedosto.txt uudelleennimetty eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 11eadc255de7b023a1df57b62b0aa795bf32181f
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:31:57 2022 +0200
+
+    poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit aa7b620566885f48c5772f72a64fc5b52609cc85
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:30:29 2022 +0200
+
+    poistettu osa ja lisätty vähän tiedosto.txt
+
+ tiedosto.txt | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
+
+commit 3b209b91df6faf7bc48351fac5c56b8d28bfe255
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:28:11 2022 +0200
+
+    lisätty paljon tekstiä tiedosto.txt
+
+ tiedosto.txt | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+
+commit b5fc95ac091eba5dd32dfdf005278c79be083845
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:07:33 2022 +0200
+
+    stuff/joku.txt lisätty
+
+ stuff/joku.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1c4da5da07843414d4695defd0a0a669ac44c055
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:06:37 2022 +0200
+
+    tiedosto.txt ja toinen.txt muutettu
+
+ tiedosto.txt | 2 ++
+ toinen.txt   | 1 +
+ 2 files changed, 3 insertions(+)
+
+commit bfe04a0e1fbde64af22912ce5e9a1abaace338a5
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:05:22 2022 +0200
+
+    kolmas.txt lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d6583e72a7c6b5b117a93cdc28ed9e75bd80ba60
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 10:03:30 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 5a30fde84684b2453f42cbd19a07c69f7d5dc3c2
+Author: miahro <mikko.ahro@gmail.com>
+Date:   Tue Nov 1 09:59:51 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
