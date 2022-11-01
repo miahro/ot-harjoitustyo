@@ -16,3 +16,5 @@ Tehtävissä on harjoiteltu esimerkiksi
 - etärepositorion kytkemistä paikalliseen repositorioon
 
 **tehtävä 16** muutos
+
+**tehtävä 17** muutos
