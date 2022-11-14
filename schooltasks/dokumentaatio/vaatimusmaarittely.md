@@ -11,8 +11,6 @@ Sovelluksessa on kahdenlaisia käyttäjiä:
 ## Käyttöliittymä
 Alusva luonnos käyttäliittymäksi alla. Tämä kuvaa oppilas käyttäjän perustoimintoja:
 
-*TÄHÄN PITÄÄ JOTENKIN LINKATA KUVA* 
-
 ![UI](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/kuvat/UIdraft.jpg)
 
 
