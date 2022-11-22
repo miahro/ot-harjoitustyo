@@ -3,5 +3,12 @@ __pycache__/
 .coverage
 htmlcov
 arkkitehtuuri.md
+ToDo
+testconfig.py 
+index.py 
+ui
+.env.test
+pytest.ini
+schema.sql
+db.sqlite3
 src
-
