@@ -73,6 +73,7 @@ class TopicRepository:
         return ""
 
     def delete_all(self):
+        """poistaa kaikki tiedot Topics tietokantataulusta"""
         cursor = self._con.cursor()
         sql = """DELETE FROM Topics"""
         cursor.execute(sql)

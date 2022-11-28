@@ -1,5 +1,7 @@
+"""sisälttää luokan ResultRepository"""
+
 from dbcon import connection
-from entities.result import Result
+#from entities.result import Result
 
 
 class ResultRepository:
@@ -26,6 +28,7 @@ class ResultRepository:
         self._con.commit()
 
     def delete_all(self):
+        """tuhoaa kaikki tiedot Result taulusta"""
         cursor = self._con.cursor()
         sql = """DELETE FROM Results"""
         cursor.execute(sql)
