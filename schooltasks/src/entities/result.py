@@ -1,7 +1,9 @@
 """moduli sisältää result -luokan eli tuloksen"""
 
+
 class Result:
     """luokka tuloksen ominaisuuksille"""
+
     def __init__(self, person, task, result):
         """alustaa Result luokan olion
         Args:   person: henkilö, User luokan olio
@@ -10,5 +12,3 @@ class Result:
         self.person = person
         self.task = task
         self.result = result
-    
-                

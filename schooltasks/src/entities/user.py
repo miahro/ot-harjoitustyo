@@ -1,7 +1,9 @@
 """moduli sisältää user-luokan"""
 
+
 class User:
     """luokka käytäjän ominaisuuksille"""
+
     def __init__(self, first_name, last_name, user_id, passwd, teacher=False):
         """alustaa User luokan olion
         Args:   user_id: käyttäjätunnus, merkkijono
