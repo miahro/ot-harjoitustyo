@@ -2,10 +2,13 @@
 import unittest
 from entities.user import User
 
+
 class TestUser(unittest.TestCase):
     def setUp(self):
-        self.test_student=User(first_name='Tero', last_name='Testi', user_id='tt1', passwd='xx')
-        self.test_teacher=User(first_name='Olli', last_name='Ope', user_id='maikka', passwd='yy', teacher=True)
+        self.test_student = User(
+            first_name='Tero', last_name='Testi', user_id='tt1', passwd='xx')
+        self.test_teacher = User(
+            first_name='Olli', last_name='Ope', user_id='maikka', passwd='yy', teacher=True)
 
     def test_student_values(self):
         self.assertEqual(self.test_student.first_name, "Tero")
@@ -20,4 +23,3 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.test_teacher.user_id, "maikka")
         self.assertEqual(self.test_teacher.passwd, "yy")
         self.assertEqual(self.test_teacher.teacher, True)
-
