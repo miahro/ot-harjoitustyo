@@ -10,10 +10,21 @@ def test(ctx):
     ctx.run("pytest src", pty=True)
 
 @task
+def build(ctx):
+    ctx.run("python3 src/build.py", pty=True)
+
+@task
 def coveragereport(ctx):
     ctx.run("coverage run --branch -m pytest src", pty=True)
     ctx.run("coverage report -m", pty=True)
     ctx.run("coverage html", pty=True)
+
+@task
+def coverage_report(ctx):
+    ctx.run("coverage run --branch -m pytest src", pty=True)
+    ctx.run("coverage report -m", pty=True)
+    ctx.run("coverage html", pty=True)
+
 
 @task
 def initializedb(ctx):
@@ -23,3 +34,6 @@ def initializedb(ctx):
 def lint(ctx):
     ctx.run("pylint src", pty=True)
 
+@task 
+def format(ctx):
+    ctx.run("autopep8 --in-place --recursive src")
