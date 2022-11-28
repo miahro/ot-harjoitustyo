@@ -5,9 +5,5 @@ htmlcov
 arkkitehtuuri.md
 ToDo
 testconfig.py 
-ui
-.env.test
-pytest.ini
-schema.sql
 db.sqlite3
-services
+class_tester.py
