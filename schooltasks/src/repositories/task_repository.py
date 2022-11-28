@@ -1,8 +1,10 @@
+"""sisälttää luokan TaskRepository tehtävien tietokantaoperaatioille"""
 import csv
 import os.path
 from dbcon import connection
 from config import TASKS_INPUT_PATH
-from entities.task import Task
+#from entities.task import Task
+
 
 class TaskRepository:
     """luokka tehtävien tietokantaoperaatiolle"""
@@ -11,7 +13,8 @@ class TaskRepository:
         """konstruktori"""
         self._con = connection
 
-    def check_file_path(self):
+    @staticmethod
+    def check_file_path():
         """tarkistaa onko tehtävät tiedosto ja polku olemassa"""
         return os.path.exists(TASKS_INPUT_PATH)
 
@@ -22,13 +25,13 @@ class TaskRepository:
         if not self.check_file_path():
             return []
         tasks = []
-        with open(TASKS_INPUT_PATH, 'r') as f:
-            csv_reader = csv.reader(f, delimiter=';')
+        with open(TASKS_INPUT_PATH, 'r', encoding='utf-8') as file:
+            csv_reader = csv.reader(file, delimiter=';')
             next(csv_reader)
-            for l in csv_reader:
-                tasks.append(l)             
+            for line in csv_reader:
+                tasks.append(line)
         return tasks
-        
+
     def update_db(self, tasks):
         """lisää tieokantatauluun uudet aiheet
         Args: tasks, lista tehtävistä
@@ -43,13 +46,13 @@ class TaskRepository:
             self._con.commit()
 
     def delete_all(self):
+        """tuhoaa kaikki tehtävät tietokantataulusta"""
         cursor = self._con.cursor()
-        sql ="""DELETE FROM Tasks"""
+        sql = """DELETE FROM Tasks"""
         cursor.execute(sql)
         self._con.commit()
 
 
-#tämä luokka ei ole valmis, tarvitaan lisää hakutoimintoja
+# tämä luokka ei ole valmis, tarvitaan lisää hakutoimintoja
 
 taskrepository = TaskRepository()
-

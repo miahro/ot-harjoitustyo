@@ -4,6 +4,7 @@ import os.path
 from dbcon import connection
 from config import TOPICS_INPUT_PATH
 
+
 class TopicRepository:
     """luokka käyttäjän tietokantaoperaatiolle"""
 
@@ -15,7 +16,6 @@ class TopicRepository:
     def check_file_path():
         """tarkistaa onko aihe-tiedosta ja polku olemassa"""
         return os.path.exists(TOPICS_INPUT_PATH)
-
 
     def read_from_file(self):
         """lukee aiheet CSV tiedostosta"""
@@ -41,7 +41,7 @@ class TopicRepository:
     def all_topics(self):
         """palauttaa kaikkien aiheiden nimet"""
         cursor = self._con.cursor()
-        sql ="""SELECT topic
+        sql = """SELECT topic
                 FROM Topics"""
         query = cursor.execute(sql).fetchall()
         result = [item[0] for item in query]
@@ -53,7 +53,7 @@ class TopicRepository:
         Args: topic, aihe mekkijonona
         """
         cursor = self._con.cursor()
-        sql ="""SELECT id
+        sql = """SELECT id
                 FROM Topics
                 WHERE topic=?;"""
         query = cursor.execute(sql, (topic,)).fetchone()
@@ -74,7 +74,7 @@ class TopicRepository:
 
     def delete_all(self):
         cursor = self._con.cursor()
-        sql ="""DELETE FROM Topics"""
+        sql = """DELETE FROM Topics"""
         cursor.execute(sql)
         self._con.commit()
 

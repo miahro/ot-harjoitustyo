@@ -1,5 +1,6 @@
-#from entities.user import User
+from entities.user import User
 from dbcon import connection
+
 
 class UserRepository:
     """luokka käyttäjän tietokantaoperaatiolle"""
@@ -16,7 +17,8 @@ class UserRepository:
             VALUES(:first_name, :last_name, :user_id, :passwd, :teacher)
             ON CONFLICT DO NOTHING        
         ;"""
-        cursor.execute(sql, {"first_name": user.first_name, "last_name": user.last_name, "user_id": user.user_id, "passwd": user.passwd, "teacher": user.teacher})
+        cursor.execute(sql, {"first_name": user.first_name, "last_name": user.last_name,
+                       "user_id": user.user_id, "passwd": user.passwd, "teacher": user.teacher})
         self._con.commit()
 
     def get_pk_id(self, user_id):
@@ -26,7 +28,7 @@ class UserRepository:
                 WHERE user_id=:user_id
                 ;"""
         result = cursor.execute(sql, {"user_id": user_id})
-        return result.fetchone()[0]
+        return result.fetchone()
 
     def get_pwd(self, pk_id):
         cursor = self._con.cursor()
@@ -35,7 +37,16 @@ class UserRepository:
                 WHERE id=:pk_id
                 ;"""
         result = cursor.execute(sql, {"pk_id": pk_id})
-        return result.fetchone()[0]
+        return result.fetchone()
+
+    def get_pwd_by_user_id(self, user_id):
+        cursor = self._con.cursor()
+        sql = """SELECT passwd
+                FROM Users
+                WHERE user_id=:user_id
+                ;"""
+        result = cursor.execute(sql, {"user_id": user_id})
+        return result.fetchone()
 
     def user_details_by_user_id(self, user_id):
         cursor = self._con.cursor()
@@ -45,6 +56,19 @@ class UserRepository:
                 ;"""
         result = cursor.execute(sql, {"user_id": user_id})
         return result.fetchall()
+
+    def user_by_user_id(self, user_id):
+        cursor = self._con.cursor()
+        sql = """SELECT first_name, last_name, user_id, passwd, teacher
+                FROM Users 
+                WHERE user_id=:user_id
+                ;"""
+        result = cursor.execute(sql, {"user_id": user_id}).fetchone()
+        if result is None:
+            user = None
+        else:
+            user = User(result[0], result[1], result[2], result[3])
+        return user
 
     def all_students(self):
         cursor = self._con.cursor()
@@ -65,8 +89,9 @@ class UserRepository:
 
     def delete_all(self):
         cursor = self._con.cursor()
-        sql ="""DELETE FROM Users"""
+        sql = """DELETE FROM Users"""
         cursor.execute(sql)
         self._con.commit()
+
 
 userrepository = UserRepository()
