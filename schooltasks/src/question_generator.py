@@ -34,7 +34,7 @@ class QuestionGenerator:
                 task_list.append(task)
         self.write_csv(task_list)
 
-    def subraction(self):
+    def subtraction(self):
         """"luo vähennyslaskukysymykset"""
         std_part = "Valitse seuraavan vähennyslaskun oikea tulos: "
         task_list = []
@@ -118,7 +118,8 @@ class QuestionGenerator:
         with open(self.filepath, 'a', newline='', encoding='utf-8') as csvfile:
             fieldnames = ['topic', 'difficulty', 'question',
                           'correct', 'wrong1', 'wrong2', 'wrong3']
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
+            writer = csv.DictWriter(
+                csvfile, fieldnames=fieldnames, delimiter=';')
             writer.writerows(task_list)
 
     def write_csv_headers(self):
@@ -127,7 +128,8 @@ class QuestionGenerator:
         with open(self.filepath, 'w', newline='', encoding='utf-8') as csvfile:
             fieldnames = ['topic', 'difficulty', 'question',
                           'correct', 'wrong1', 'wrong2', 'wrong3']
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
+            writer = csv.DictWriter(
+                csvfile, fieldnames=fieldnames, delimiter=';')
             writer.writeheader()
 
     def populate_csv(self):
@@ -135,12 +137,12 @@ class QuestionGenerator:
         tämän jälkeen yksittäisten kysymyssarjojen luontifunktioita"""
         self.write_csv_headers()
         self.addition()
-        self.subraction()
+        self.subtraction()
         self.multiplication()
         self.division()
 
 
-def main():
+def generate():
     """pääohjelma, luo QuestionGenerator olion
     ja kutsuu kysymysten luontifunktiota populate_csv()"""
     question_generator = QuestionGenerator()
@@ -148,4 +150,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    generate()
