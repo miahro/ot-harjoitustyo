@@ -6,6 +6,7 @@ from repositories.user_repository import userrepository
 
 class UserServices:
     """Luokka käyttäjän palveluita varten"""
+
     def __init__(self):
         """konstruktori alustaa tyhjän olion, ja käyttäää userrepository oliota"""
         self.logged_in_user = None
