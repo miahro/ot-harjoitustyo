@@ -64,8 +64,7 @@ class UserServices:
         user_details = {}
         user_details['first_name'] = self.logged_in_user.first_name
         user_details['last_name'] = self.logged_in_user.last_name
-        user_details['user_id'] = self.logged_in_user.user_id        
-
+        user_details['user_id'] = self.logged_in_user.user_id
 
         return user_details
 
