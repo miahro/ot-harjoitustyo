@@ -49,6 +49,8 @@ class UserServices:
         Args    user_id: käyttäjätunnus
                 passwd: salasana"""
         password = self.user_repository.get_pwd_by_user_id(user_id)
+        if password is None:
+            return (False, "käyttäjätunnusta ei löydy")
         if password[0] != passwd:
             return (False, "käyttäjätunnus ja salasana eivät täsmää")
         self.logged_in_user = self.user_repository.user_by_user_id(user_id)
@@ -57,6 +59,15 @@ class UserServices:
     def logout(self):
         """kirjaa käyttäjän ulos"""
         self.logged_in_user = None
+
+    def active_user_details(self):
+        user_details = {}
+        user_details['first_name'] = self.logged_in_user.first_name
+        user_details['last_name'] = self.logged_in_user.last_name
+        user_details['user_id'] = self.logged_in_user.user_id        
+
+
+        return user_details
 
 
 userservices = UserServices()
