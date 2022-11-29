@@ -20,6 +20,11 @@ poetry install
 ```bash
 poetry run invoke build
 ``` 
+4. tehtävälista CSV-tiedoston luominen:
+```bash
+poetry run generate-questions
+``` 
+
 
 ## Komentorivitoiminnot
 
