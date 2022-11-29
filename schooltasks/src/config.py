@@ -17,3 +17,6 @@ TOPICS_INPUT_PATH = os.path.join(
 
 DB_FILE = os.getenv("DB_FILE")
 DB_FILE_PATH = os.path.join(directory, "..", "data", DB_FILE)
+
+TASK_KEYS = ("topic_id", "difficulty", "question",
+             "correct", "wrong1", "wrong2", "wrong3")
