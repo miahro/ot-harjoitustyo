@@ -26,16 +26,10 @@ class LoginView:
 
         result = userservices.login(user_id, passwd)
         if result[0]:
-            print("login onnistui")
             self._show_choice_view()
         else:
             self._show_message(result[1])
             self._clear_entry_fields()
-    
-    # def _logout(self):
-    #     #userservices.logout()
-    #     print(userservices.logged_in_user)
-    #     self._show_start_view()
 
     def _clear_entry_fields(self):
         self._user_id_entry.delete(0, 'end')

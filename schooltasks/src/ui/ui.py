@@ -25,14 +25,12 @@ class UI:
         self._show_login_view()
 
     def _handle_start(self):
-        print("ui _handle_start")
         self._show_start_view()
 
     def _handle_new_user(self):
         self._show_new_user_view()
 
     def _handle_choice(self):
-        print("ui _handle_choice")
         self._show_choice_view()
 
     def _handle_task(self):
