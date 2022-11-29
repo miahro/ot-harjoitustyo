@@ -2,8 +2,8 @@
 import csv
 import os.path
 from dbcon import connection
-from config import TASKS_INPUT_PATH
-#from entities.task import Task
+from config import TASKS_INPUT_PATH, TASK_KEYS
+from entities.task import Task
 
 
 class TaskRepository:
@@ -52,7 +52,30 @@ class TaskRepository:
         cursor.execute(sql)
         self._con.commit()
 
+    def get_random_task_list(self, topic_id, difficulty, tasks_no):
+        """palauttaa number_of_tasks määrän satunnaisia
+        tehtävä-olioita listana"""
+        cursor = self._con.cursor()
+        sql = """SELECT topic_id,
+                difficulty, 
+                question,
+                correct,
+                wrong1,
+                wrong2,
+                wrong3
+                FROM Tasks 
+                WHERE topic_id=:topic_id
+                AND difficulty=:difficulty
+                ORDER BY RANDOM() LIMIT :tasks_no
+        """
+        result = cursor.execute(
+            sql, {"topic_id": topic_id, "difficulty": difficulty, "tasks_no": tasks_no})
+        full_list = result.fetchall()
+        keys = TASK_KEYS
 
-# tämä luokka ei ole valmis, tarvitaan lisää hakutoimintoja
+        tasks_list_dict = [dict(zip(keys, values)) for values in full_list]
+        tasks_list = [Task(x) for x in tasks_list_dict]
+        return tasks_list
+
 
 taskrepository = TaskRepository()
