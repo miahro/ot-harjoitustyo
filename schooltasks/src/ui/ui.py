@@ -63,7 +63,8 @@ class UI:
             self._root,
             self._handle_start,
             self._handle_task,
-            self._handle_result
+            self._handle_result,
+            self._show_start_view
         )
 
     def _show_start_view(self):
@@ -84,7 +85,8 @@ class UI:
             self._root,
             self._handle_start,
             self._handle_choice,
-            self._show_choice_view
+            self._show_choice_view,
+            self._show_start_view
         )
 
         self._current_view.pack()

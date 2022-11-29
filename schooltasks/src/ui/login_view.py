@@ -4,11 +4,12 @@ from services.user_services import userservices
 
 
 class LoginView:
-    def __init__(self, root, handle_start, handle_choice, show_choice_view):
+    def __init__(self, root, handle_start, handle_choice, show_choice_view, show_start_view):
         self._root = root
         self._handle_start = handle_start
         self._handle_choice = handle_choice
         self._show_choice_view = show_choice_view
+        self._show_start_view = show_start_view
         self._frame = None
 
         self._initialize()
@@ -30,6 +31,11 @@ class LoginView:
         else:
             self._show_message(result[1])
             self._clear_entry_fields()
+    
+    # def _logout(self):
+    #     #userservices.logout()
+    #     print(userservices.logged_in_user)
+    #     self._show_start_view()
 
     def _clear_entry_fields(self):
         self._user_id_entry.delete(0, 'end')
@@ -79,13 +85,14 @@ class LoginView:
         return_button = ttk.Button(
             master=self._frame,
             text="Palaa",
+            #command = self._logout
             command=self._handle_start
         )
         return_button.grid(padx=5, pady=5, sticky=constants.EW)
 
-        choice_button = ttk.Button(
-            master=self._frame,
-            text="Valintanäkymä",
-            command=self._handle_choice
-        )
-        choice_button.grid(padx=5, pady=5, sticky=constants.EW)
+        # choice_button = ttk.Button(
+        #     master=self._frame,
+        #     text="Valintanäkymä",
+        #     command=self._handle_choice
+        # )
+        # choice_button.grid(padx=5, pady=5, sticky=constants.EW)

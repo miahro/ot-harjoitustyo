@@ -1,5 +1,5 @@
 from tkinter import ttk, constants
-
+from services.user_services import userservices
 
 class TaskView:
     def __init__(self, root, handle_start, handle_choice):
@@ -19,21 +19,31 @@ class TaskView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame, text="Tehtävänäkymä")
-        button = ttk.Button(
-            master=self._frame,
-            text="Palaa alkuun",
-            command=self._handle_start
-        )
-
         label.grid(row=5, column=0)
 
-        button.grid(row=6, column=0)
+        user_label = ttk.Label(master=self._frame, text=f"Kirjautunut käyttäjä: {userservices.active_user_details()['user_id']}")
+        user_label.grid(row=8, column=0)
+
+        temp_label = ttk.Label(master=self._frame, text=f"Ei mitään järkevää vielä, tehtävät tähän")
+        temp_label.grid(row=10, column=0)
+
+
+
+        # button = ttk.Button(
+        #     master=self._frame,
+        #     text="Palaa alkuun",
+        #     command=self._handle_start
+        # )
+
+
+
+        # button.grid(row=6, column=0)
 
         button = ttk.Button(
             master=self._frame,
             text="Palaa takaisin",
             command=self._handle_choice
         )
-        button.grid(row=10, column=0)
+        button.grid(row=14, column=0)
 
         self.pack()
