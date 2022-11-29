@@ -9,7 +9,10 @@
 |3 |20.11.| 5    | tietokannan määrittely, entities ja repositories luokkien kirjoitusta|
 |3 |21.11.| 6    | entities ja repositories luokkien kirjoitusta, yksikkötestien kirjoitusta, apufunktioita ja invoke taskeja|
 |3 |22.11.| 8    | entities ja repositories luokkien kirjoitusta, yksikkötestien kirjoitusta, dokumentaation päivitys|
-
+|4 |23.11.| 4    | alustavan käyttöliittymän kirjoitusta|
+|4 |27.11.| 4    | alustavan käyttöliittymän kirjoitusta|
+|4 |28.11.| 8    | services luokkien kirjoitusta, yksikkötestien kirjoitusta, bugikorjauksia, dokumentaation päivitystä|
+|4 |29.11.| 8    | TaskGenerator apuluokan kirjoitus, käyttöliittymän korjausta, muun koodin korjausta, yksikkötestejä, dokumentaation päivys|
 
 
 **Yhteensä**
@@ -17,9 +20,9 @@
 | :---:| :---:|
 | 2   | 6   | 
 | 3   | 26  | 
-| 4   | x   | 
+| 4   | 24   | 
 | 5   | x   | 
-| 5   | x   | 
-| yht | 32 |
+| 6   | x   | 
+| yht | 56 |
 
 

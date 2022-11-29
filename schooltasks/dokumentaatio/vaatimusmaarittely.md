@@ -17,7 +17,7 @@ Alusva luonnos käyttäliittymäksi alla. Tämä kuvaa oppilas käyttäjän peru
 ## Toiminnallisuus
 
 ### Käyttäjähallinta
-- oppilaat voivat itse luoda käyttäjätunnuksia sekä niihin liittyviä salasanoja. 
+- oppilaat voivat itse luoda käyttäjätunnuksia sekä niihin liittyviä salasanoja. "tehty"
 - opettajan tunnus ja salasana luodaan ensimmäisen käynnistyksen yhteydessä
 
 
@@ -25,9 +25,9 @@ Alusva luonnos käyttäliittymäksi alla. Tämä kuvaa oppilas käyttäjän peru
 Opettaja-roolissa oleva käyttäjä voi ylläpitää tehtävälistoja. Alustavasassa versiossa tehtävälistat syötetään ulkoisena .csv-tiedostona. 
 
 Tehtävillä on:
-- aihe (esim. kertotaulut, yhteenlasku, vähennyslasku, jne)
-- vaikeustaso 
-- oikea vastausvaihetoehto sekä kolme väärää vastaustavaihtoehtoa
+- aihe (esim. kertotaulut, yhteenlasku, vähennyslasku, jne) "tehty"
+- vaikeustaso  "tehty"
+- oikea vastausvaihetoehto sekä kolme väärää vastaustavaihtoehtoa "tehty"
 
 ### Tehtävien teko
 Oppilaat tekevät tehtäviä. Alustavasti oppilas valitsee aiheen ja vaikeustason, ja saa 10 tehtävää suoritettavaksi. Tehtävät ovat monivalintatyyppisiä (vaihtoehdot a-d). 
@@ -41,7 +41,7 @@ Oppilaat tekevät tehtäviä. Alustavasti oppilas valitsee aiheen ja vaikeustaso
 - opettaja voi tarkista kaikkien oppilaiden tulokset
 
 ## Mahdollinen jatkokehitys
-- tehtävien automaattinen generointi
+- tehtävien automaattinen generointi "tehty"
 - säädettävä aikaraja (lisävaikeustaso) tehtäville
 - laajennetaan tulosten tilastointinäkymiä
 - mahdollisesti muiden aiheiden kuin matematiikan tehtävien lisäys
