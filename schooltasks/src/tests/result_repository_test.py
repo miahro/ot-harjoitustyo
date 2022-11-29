@@ -1,7 +1,6 @@
 """yksikkötestit ResultRepository luokalle"""
 import unittest
 from dbcon import connection
-#from repositories.user_repository import userrepository
 from repositories.result_repository import resultrepository
 
 
@@ -10,9 +9,6 @@ class TestTopicRepository(unittest.TestCase):
         resultrepository.delete_all()
 
     def test_table_exists(self):
-        #    self.assertEqual(connection.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Users';").fetchone()[0], 1)
-        #    self.assertEqual(connection.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Topics';").fetchone()[0], 1)
-        #    self.assertEqual(connection.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Tasks';").fetchone()[0], 1)
         self.assertEqual(connection.execute(
             "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Results';").fetchone()[0], 1)
 

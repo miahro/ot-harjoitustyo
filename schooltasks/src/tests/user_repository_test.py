@@ -18,15 +18,11 @@ class TestUserRepository(unittest.TestCase):
             first_name='Olli', last_name='Ope', user_id='maikka', passwd='yy', teacher=True)
 
     def test_DB_exists(self):
-        # print(DB_FILE_PATH)
         self.assertEqual(isfile(DB_FILE_PATH), True)
 
     def test_table_exists(self):
         self.assertEqual(connection.execute(
             "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Users';").fetchone()[0], 1)
-    #    self.assertEqual(connection.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Topics';").fetchone()[0], 1)
-    #    self.assertEqual(connection.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Tasks';").fetchone()[0], 1)
-    #    self.assertEqual(connection.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Results';").fetchone()[0], 1)
 
     def test_add_user(self):
         size0 = connection.execute("SELECT COUNT(*) FROM Users;").fetchone()[0]
