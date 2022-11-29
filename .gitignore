@@ -2,7 +2,6 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov
-arkkitehtuuri.md
 ToDo
 testconfig.py 
 db.sqlite3
