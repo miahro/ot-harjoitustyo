@@ -9,3 +9,9 @@ class TestTopic(unittest.TestCase):
 
     def test_topic_values(self):
         self.assertEqual(self.test_topic.topic, "yhteenlasku")
+
+    def test___repr__(self):
+        self.assertEqual(self.test_topic.__repr__(), f"Topic(yhteenlasku)")
+
+    def test___str__(self):
+        self.assertEqual(self.test_topic.__str__(), "yhteenlasku")

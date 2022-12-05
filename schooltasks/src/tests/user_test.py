@@ -6,9 +6,9 @@ from entities.user import User
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.test_student = User(
-            first_name='Tero', last_name='Testi', user_id='tt1', passwd='xx')
+            {"first_name":'Tero', "last_name":'Testi', "user_id":'tt1', "passwd":'xx'})
         self.test_teacher = User(
-            first_name='Olli', last_name='Ope', user_id='maikka', passwd='yy', teacher=True)
+            {"first_name":'Olli', "last_name":'Ope', "user_id": 'maikka', "passwd":'yy'}, teacher=True)
 
     def test_student_values(self):
         self.assertEqual(self.test_student.first_name, "Tero")
@@ -23,3 +23,9 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.test_teacher.user_id, "maikka")
         self.assertEqual(self.test_teacher.passwd, "yy")
         self.assertEqual(self.test_teacher.teacher, True)
+
+    def test___repr__(self):
+        self.assertEqual(self.test_student.__repr__(), f"User(Tero, Testi, tt1, xx, False)")
+
+    def test___str__(self):
+        self.assertEqual(self.test_student.__str__(), f"first_name: Tero, last_name: Testi, user_id: tt1, passwd: xx, teacher: False")

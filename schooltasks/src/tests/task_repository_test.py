@@ -24,3 +24,18 @@ class TestTopicRepository(unittest.TestCase):
         taskrepository.update_db(tasks)
         size1 = connection.execute("SELECT COUNT(*) FROM Tasks;").fetchone()[0]
         self.assertEqual(size1-size0, 1)
+
+    def test_max_difficulty(self):
+        task = [[1, 1, "kysymys", "oikea", "väärä1", "väärä2", "väärä3"]]
+        task2 = [[1, 10, "kysymys", "oikea", "väärä1", "väärä2", "väärä3"]]
+        taskrepository.update_db(task)
+        taskrepository.update_db(task2)
+        self.assertEqual(taskrepository.max_difficulty(), 10)
+
+    def test_min_difficulty(self):
+        task = [[1, 1, "kysymys", "oikea", "väärä1", "väärä2", "väärä3"]]
+        task2 = [[1, 9, "kysymys", "oikea", "väärä1", "väärä2", "väärä3"]]
+        taskrepository.update_db(task)
+        taskrepository.update_db(task2)
+        self.assertEqual(taskrepository.min_difficulty(), 1)
+
