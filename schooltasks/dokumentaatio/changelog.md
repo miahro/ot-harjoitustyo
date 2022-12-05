@@ -30,4 +30,23 @@ Lisäksi kirjoitettu yksikkötestejä, nämä tarkemmin erillisessä [testausdok
  - alustava käyttöliittymä
     - ei sisällä vielä läheskään kaikkea toiminnallisuutta, mutta uuden käyttäjän voi luoda, ja käyttäjä voi kirjautua sisään
     - lisäksi näkymien välillä (valinta, tee tehtäviä, tulokset) välillä voi liikkua. Näkymät eivät vielä toistaiseksi näytä mitään 
-    
+
+## Viikko 5:
+Laajennettu olemassaolevia services luokkia, ja lisätty uusia services luokkia. Laajennettu / korjattu entities ja repositories luokkia. Laajennettu / paranannettu käyttöliittymää. Tarkemmin:
+- serivices luokat:
+    - laajennettu task_services luokan toiminnallisuutta
+    - korjattu user_services luokkaa
+    - luotu uusi topic_services luokka
+- repositories ja entities luokat:
+    - pieniä korjauksia kaikkiin luokkiin
+    - task_repository ja topic_repository luokkiin lisätty hakutoiminnallisuutta
+- käyttöliittymä: valintanäkymään (aiheen ja vaikeustason valinta, valinta tehdäänkö tehtäviä vai näytetäänkö tulokset): lisätty aiheen ja vaikeustason valinnan toiminnallisuus
+
+Tällä hetkellä toteutettu toiminnallisuus:
+- uuden käytttäjän luonti
+- sisään- ja uloskirjautuminen
+- aiheen ja vaikeustason valinta
+
+Vielä totuettamatta:
+- tehtävien tekeminen
+- tulosten tarkastelu
