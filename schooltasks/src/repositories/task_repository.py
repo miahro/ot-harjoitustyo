@@ -78,17 +78,18 @@ class TaskRepository:
         return tasks_list
 
     def max_difficulty(self):
+        """palauttaa maksimivaikeustason"""
         cursor = self._con.cursor()
         sql = "SELECT MAX(difficulty) FROM Tasks"
         result = cursor.execute(sql).fetchone()
         return result[0]
 
     def min_difficulty(self):
+        """palauttaa minimivaikeustason"""
         cursor = self._con.cursor()
         sql = "SELECT MIN(difficulty) FROM Tasks"
         result = cursor.execute(sql).fetchone()
         return result[0]
-
 
 
 taskrepository = TaskRepository()

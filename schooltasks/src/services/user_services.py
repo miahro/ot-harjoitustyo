@@ -27,8 +27,13 @@ class UserServices:
             return (False, "mikään kenttä ei saa olla tyhjä")
         if passwd1 != passwd2:
             return (False, "salasanat eroavat")
-        self.user = User(first_name, last_name, user_id,
-                         passwd1, teacher)
+        user_dict = {"first_name":first_name,
+                    "last_name": last_name,
+                    "user_id": user_id,
+                    "passwd": passwd1,
+                    "teacher": teacher
+                    }
+        self.user = User(user_dict)
         if len(self.user_repository.user_details_by_user_id(self.user.user_id)) != 0:
             return (False, "käyttäjätunnus on jo olemassa")
         self.user_repository.add_user(self.user)
@@ -61,6 +66,7 @@ class UserServices:
         self.logged_in_user = None
 
     def active_user_details(self):
+        """palauttaa sisäänkirjautuneen käyttäjän tiedot"""
         user_details = {}
         user_details['first_name'] = self.logged_in_user.first_name
         user_details['last_name'] = self.logged_in_user.last_name

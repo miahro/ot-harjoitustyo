@@ -82,7 +82,13 @@ class UserRepository:
         if result is None:
             user = None
         else:
-            user = User(result[0], result[1], result[2], result[3])
+            user_dict =  {"first_name": result[0],
+                        "last_name": result[1],
+                        "user_id": result[2],
+                        "passwd": result[3],
+                        "teacher": result[4]
+                    }
+            user = User(user_dict)
         return user
 
     def all_students(self):
