@@ -79,5 +79,17 @@ class TopicRepository:
         cursor.execute(sql)
         self._con.commit()
 
+    # def max_difficulty(self):
+    #     cursor = self._con.cursor()
+    #     sql = "SELECT MAX(difficulty) FROM Topics"
+    #     result = cursor.execute(sql).fetchone()
+    #     return result[0]
+
+    # def min_difficulty(self):
+    #     cursor = self._con.cursor()
+    #     sql = "SELECT MIN(difficulty) FROM Topics"
+    #     result = cursor.execute(sql).fetchone()
+    #     return result[0]
+
 
 topicrepository = TopicRepository()

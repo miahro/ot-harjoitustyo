@@ -77,5 +77,18 @@ class TaskRepository:
         tasks_list = [Task(x) for x in tasks_list_dict]
         return tasks_list
 
+    def max_difficulty(self):
+        cursor = self._con.cursor()
+        sql = "SELECT MAX(difficulty) FROM Tasks"
+        result = cursor.execute(sql).fetchone()
+        return result[0]
+
+    def min_difficulty(self):
+        cursor = self._con.cursor()
+        sql = "SELECT MIN(difficulty) FROM Tasks"
+        result = cursor.execute(sql).fetchone()
+        return result[0]
+
+
 
 taskrepository = TaskRepository()
