@@ -33,3 +33,7 @@ class Task:
         self.wrong1 = task_dict["wrong1"]
         self.wrong2 = task_dict["wrong2"]
         self.wrong3 = task_dict["wrong3"]
+
+    def __str__(self):
+        task = f"topic_id: {self.topic_id}, difficulty: {self.difficulty}, question: {self.question}, correct: {self.correct}, wrong1: {self.wrong1}, wrong2: {self.wrong2}, wrong3: {self.wrong3}"
+        return task

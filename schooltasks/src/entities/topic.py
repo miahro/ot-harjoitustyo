@@ -8,3 +8,6 @@ class Topic:
         """alustaa Topic luokan olion
         Args:   topic: aihe"""
         self.topic = topic
+
+    def __str__(self):
+        return self.topic
