@@ -9,5 +9,8 @@ class Topic:
         Args:   topic: aihe"""
         self.topic = topic
 
+    def __repr__(self):
+        return f"Topic({self.topic})"
+
     def __str__(self):
-        return self.topic
+        return f"{self.topic}"
