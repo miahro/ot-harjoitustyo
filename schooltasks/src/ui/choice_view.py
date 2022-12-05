@@ -32,12 +32,10 @@ class ChoiceView:
         self.destroy()
         self._initialize()
 
-
     def _difficulty_choice(self, choice):
         taskservices.set_active_difficulty(choice)
         self.destroy()
         self._initialize()
-
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
@@ -56,7 +54,7 @@ class ChoiceView:
         )
         logout_button.grid(padx=5, pady=5, sticky=constants.EW)
 
-#aiheen valinta
+# aiheen valinta
         top_choice_label = ttk.Label(
             master=self._frame, text="Valitse aihe", font=('Helvetica', 12, 'bold'))
         top_choice_label.grid(padx=5, pady=5, sticky=constants.EW)
@@ -73,7 +71,7 @@ class ChoiceView:
             self._frame, topic_var, *topics, command=self._topic_choice)
         topic_options.grid(padx=5, pady=5, sticky=constants.EW)
 
-#aiheen valinta
+# aiheen valinta
 
         level_choice_label = ttk.Label(
             master=self._frame, text="Valitse vaikeustaso", font=('Helvetica', 12, 'bold'))
@@ -83,11 +81,10 @@ class ChoiceView:
             master=self._frame, text=f"Valittu vaikeustaso: {taskservices.return_active_difficulty_str()}")
         difficulty_label.grid(padx=5, pady=5, sticky=constants.EW)
 
-
         difficulty = taskservices.return_difficulty_range()
         difficulty_var = StringVar()
+        
         difficulty_var.set(difficulty[0])  # default value
-
 
         difficulty_options = OptionMenu(
             self._frame, difficulty_var, *difficulty, command=self._difficulty_choice)
