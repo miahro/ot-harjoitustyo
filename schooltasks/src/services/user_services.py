@@ -11,7 +11,7 @@ class UserServices:
         """konstruktori alustaa tyhjän olion, ja käyttäää userrepository oliota"""
         self.logged_in_user = None
         self.user_repository = userrepository
-        self.user = None
+        self.user = None  # ei käytetä toistaiseksi mihinkään
 
     def create_new_user(self, first_name, last_name, user_id, passwd1, passwd2, teacher=False):
         """luo uuden käyttäjän, ja lisää käyttäjän tiedot tietokantaan
