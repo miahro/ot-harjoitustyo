@@ -2,7 +2,13 @@
 
 
 class User:
-    """luokka käytäjän ominaisuuksille"""
+    """luokka käytäjän ominaisuuksille
+    Attributes:
+        user_id: käyttäjätunnus, merkkijono
+        password: salasana, merkkijono
+        first_name: etunimi, merkkijono
+        last_name: sukunimi, merkkijono
+        teacher: onko opettaja, boolean"""
 
     def __init__(self, user_dict, teacher=False):
         """alustaa User luokan olion
@@ -19,10 +25,9 @@ class User:
         self.teacher = teacher
 
     def __repr__(self):
-        return  f"User({self.first_name}, {self.last_name}, {self.user_id}, "\
-                f"{self.passwd}, {self.teacher})"
-
+        return f"User({self.first_name}, {self.last_name}, {self.user_id}, "\
+            f"{self.passwd}, {self.teacher})"
 
     def __str__(self):
-        return  f"first_name: {self.first_name}, last_name: {self.last_name}, "\
-                f"user_id: {self.user_id}, passwd: {self.passwd}, teacher: {self.teacher}"
+        return f"first_name: {self.first_name}, last_name: {self.last_name}, "\
+            f"user_id: {self.user_id}, passwd: {self.passwd}, teacher: {self.teacher}"

@@ -1,14 +1,18 @@
-"""moduli sisältää result -luokan eli tuloksen"""
+"""moduli sisältää Result -luokan eli tuloksen"""
 
 
 class Result:
-    """luokka tuloksen ominaisuuksille"""
+    """luokka tuloksen ominaisuuksille
+    Attributes:
+        person: henkilö, Person-luokan olio
+        task: tehtävä, Task-luokan olio
+        Result: tulos, boolean """
 
     def __init__(self, person, task, result):
         """alustaa Result luokan olion
         Args:   person: henkilö, User luokan olio
                 task: tehtävä, Task luokan olio
-                result: tulos, result luokan olio """
+                result: tulos boolean """
         self.person = person
         self.task = task
         self.result = result

@@ -7,7 +7,9 @@ from entities.task import Task
 
 
 class TaskRepository:
-    """luokka tehtävien tietokantaoperaatiolle"""
+    """luokka tehtävien tietokantaoperaatiolle
+    Attributes:
+        _con: tietokantayhteys"""
 
     def __init__(self):
         """konstruktori"""
@@ -21,6 +23,9 @@ class TaskRepository:
     def read_from_file(self):
         """lukee tehtävät CSV tiedostosta
         palauttaa tehtävät listana
+
+        Returns:
+            tehtävät listana
         """
         if not self.check_file_path():
             return []
@@ -34,8 +39,8 @@ class TaskRepository:
 
     def update_db(self, tasks):
         """lisää tieokantatauluun uudet aiheet
-        Args: tasks, lista tehtävistä
-        lista on [int, int, str, str, srt, str,str]
+        Args:
+            tasks, lista tehtävistä muodossa [int, int, str, str, srt, str,str]
         """
         cursor = self._con.cursor()
         sql = """INSERT INTO
@@ -54,7 +59,13 @@ class TaskRepository:
 
     def get_random_task_list(self, topic_id, difficulty, tasks_no):
         """palauttaa number_of_tasks määrän satunnaisia
-        tehtävä-olioita listana"""
+        tehtävä-olioita listana
+        Args:
+            topic_id: aiheen tunniste
+            difficulty: vaikeustaso
+            tasks_no: palautettavien tehtävien määrä
+        Returns:
+            lista tehtävä-olioita"""
         cursor = self._con.cursor()
         sql = """SELECT topic_id,
                 difficulty, 
@@ -79,14 +90,18 @@ class TaskRepository:
         return tasks_list
 
     def max_difficulty(self):
-        """palauttaa maksimivaikeustason"""
+        """palauttaa maksimivaikeustason
+        Returns:
+            maksimivaikeuso tietokannassa (int)"""
         cursor = self._con.cursor()
         sql = "SELECT MAX(difficulty) FROM Tasks"
         result = cursor.execute(sql).fetchone()
         return result[0]
 
     def min_difficulty(self):
-        """palauttaa minimivaikeustason"""
+        """palauttaa minimivaikeustason
+        Returns:
+            minimivaikeustaso teitokannassa (int)"""
         cursor = self._con.cursor()
         sql = "SELECT MIN(difficulty) FROM Tasks"
         result = cursor.execute(sql).fetchone()

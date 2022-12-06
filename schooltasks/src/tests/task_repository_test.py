@@ -38,4 +38,3 @@ class TestTopicRepository(unittest.TestCase):
         taskrepository.update_db(task)
         taskrepository.update_db(task2)
         self.assertEqual(taskrepository.min_difficulty(), 1)
-

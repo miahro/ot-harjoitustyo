@@ -11,11 +11,11 @@ class TestUserRepository(unittest.TestCase):
     def setUp(self):
         userrepository.delete_all()
         self.test_student = User(
-            {"first_name":'Tero', "last_name":'Testi', "user_id":'tt1', "passwd":'xx'})
+            {"first_name": 'Tero', "last_name": 'Testi', "user_id": 'tt1', "passwd": 'xx'})
         self.test_student2 = User(
-            {"first_name":'Taavi', "last_name":'Toinen', "user_id":'tt2', "passwd":'xx'})
+            {"first_name": 'Taavi', "last_name": 'Toinen', "user_id": 'tt2', "passwd": 'xx'})
         self.test_teacher = User(
-            {"first_name":'Olli', "last_name": 'Ope', "user_id": 'maikka', "passwd":'yy'}, teacher=True)
+            {"first_name": 'Olli', "last_name": 'Ope', "user_id": 'maikka', "passwd": 'yy'}, teacher=True)
 
     def test_DB_exists(self):
         self.assertEqual(isfile(DB_FILE_PATH), True)

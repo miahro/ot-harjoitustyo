@@ -6,7 +6,11 @@ from repositories.topic_repository import topicrepository
 
 
 class TopicServices:
-    """luokka aiheiden palveluita varten"""
+    """luokka aiheiden palveluita varten
+    Attributes:
+        topicrepository: aihe-repositorio -olio
+        active_topic: valittu aihe"""
+
 
     def __init__(self):
         """konstruktori alustaaa tyhjän olion ja käyttää taskrepository oliota"""
@@ -21,7 +25,9 @@ class TopicServices:
         self.topicrepository.update_db(topic_list_from_file)
 
     def get_all_topics(self):
-        """palauttaa kaikki aihee string-listana"""
+        """hakee kaikki aiheet
+        Returns:
+            kaikki aihee string-listana"""
         return topicrepository.all_topics()
 
     def set_active_topic(self, topic):
@@ -30,8 +36,9 @@ class TopicServices:
         self.active_topic = tid
 
     def return_active_topic(self):
-        """palauttaa valitun aiheen
-        jos aihetta ei valittu, palauttaa 'ei valittu'-viestin"""
+        """hakee valitun aiheen
+        Returns:
+            valittu aihe (str), jos aihetta ei valittu, palauttaa 'ei valittu'-tekstin"""
         if self.active_topic is None:
             return "aihetta ei valittu"
         return self.topicrepository.topic_by_id(self.active_topic)

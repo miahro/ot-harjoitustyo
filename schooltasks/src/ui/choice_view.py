@@ -83,7 +83,7 @@ class ChoiceView:
 
         difficulty = taskservices.return_difficulty_range()
         difficulty_var = StringVar()
-        
+
         difficulty_var.set(difficulty[0])  # default value
 
         difficulty_options = OptionMenu(

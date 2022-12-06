@@ -1,4 +1,4 @@
-"""moduuli task (aihe) luokkaa varten"""
+"""moduuli sisältää TopicRepository -luokan"""
 import csv
 import os.path
 from dbcon import connection
@@ -6,7 +6,9 @@ from config import TOPICS_INPUT_PATH
 
 
 class TopicRepository:
-    """luokka käyttäjän tietokantaoperaatiolle"""
+    """luokka käyttäjän tietokantaoperaatiolle
+    Attributes:
+        _con: tietokantayhteys"""
 
     def __init__(self):
         """konstruktori"""
@@ -18,7 +20,9 @@ class TopicRepository:
         return os.path.exists(TOPICS_INPUT_PATH)
 
     def read_from_file(self):
-        """lukee aiheet CSV tiedostosta"""
+        """lukee aiheet CSV tiedostosta
+        Returns:
+            aiheet listana (merkkijonoja)"""
         if not self.check_file_path():
             return []
         tops = []
@@ -30,7 +34,9 @@ class TopicRepository:
         return tops
 
     def update_db(self, topics):
-        """lisää tieokantatauluun uudet aiheet"""
+        """lisää tieokantatauluun uudet aiheet
+        Args:
+            topics: lista aiheita (merkkijonoja)"""
         cursor = self._con.cursor()
         sql = """INSERT INTO
                 Topics(topic)
@@ -39,7 +45,9 @@ class TopicRepository:
         self._con.commit()
 
     def all_topics(self):
-        """palauttaa kaikkien aiheiden nimet"""
+        """palauttaa kaikkien aiheiden nimet
+        Returns:
+            lista aiheista (merkkijonoja)"""
         cursor = self._con.cursor()
         sql = """SELECT topic
                 FROM Topics"""
@@ -50,7 +58,10 @@ class TopicRepository:
     def id_by_topic(self, topic):
         """palauttaa tietokantataulun pk id:n aiheen perusteella
         palauttaa 0 jos ei löydy
-        Args: topic, aihe mekkijonona
+        Args:
+            topic, aihe mekkijonona
+        Returns:
+            aiheen tietokannan pkid (0, jos ei löydy)
         """
         cursor = self._con.cursor()
         sql = """SELECT id
@@ -62,7 +73,10 @@ class TopicRepository:
     def topic_by_id(self, topic_id):
         """palauttaa aiheen nimen tietokantataulun pk id:n perusteella
         palauttaa tyhjän merkkijonon, jos ei löydy
-        Args: id, kokonaisluku"""
+        Args:
+            id, kokonaisluku
+        Returns:
+            aiheen nimi (merkkijono), tyhjä jos ei löydy """
         cursor = self._con.cursor()
         sql = """SELECT Topic
                 FROM Topics
@@ -78,18 +92,5 @@ class TopicRepository:
         sql = """DELETE FROM Topics"""
         cursor.execute(sql)
         self._con.commit()
-
-    # def max_difficulty(self):
-    #     cursor = self._con.cursor()
-    #     sql = "SELECT MAX(difficulty) FROM Topics"
-    #     result = cursor.execute(sql).fetchone()
-    #     return result[0]
-
-    # def min_difficulty(self):
-    #     cursor = self._con.cursor()
-    #     sql = "SELECT MIN(difficulty) FROM Topics"
-    #     result = cursor.execute(sql).fetchone()
-    #     return result[0]
-
 
 topicrepository = TopicRepository()

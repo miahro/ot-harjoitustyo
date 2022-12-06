@@ -5,15 +5,19 @@ from services.task_services import taskservices
 from services.topic_services import topicservices
 from services.result_services import resultservices
 
+
 class TaskView:
     def __init__(self, root, handle_start, handle_choice):
         self._root = root
         self._handle_start = handle_start
         self._handle_choice = handle_choice
         self._frame = None
-        self._task_list = taskservices.get_tasks(topicservices.active_topic,taskservices.active_difficulty,10)
-        self._correct = 0 #tämä vain tulosten väliaikaiseta / paikallista näyttöä varten tehtävävänäkymässä
-        self._wrong = 0  #tämä vain tulosten väliaikaiseta / paikallista näyttöä varten tehtävävänäkymässä
+        self._task_list = taskservices.get_tasks(
+            topicservices.active_topic, taskservices.active_difficulty, 10)
+        # tämä vain tulosten väliaikaiseta / paikallista näyttöä varten tehtävävänäkymässä
+        self._correct = 0
+        # tämä vain tulosten väliaikaiseta / paikallista näyttöä varten tehtävävänäkymässä
+        self._wrong = 0
 
         self._initialize()
 
@@ -23,18 +27,17 @@ class TaskView:
     def destroy(self):
         self._frame.destroy()
 
-
-
     def _answer(self, value, task_id):
         if value <= 0:
             self._wrong += 1
-            resultservices.add_result(userservices.active_user_details()['user_id'], task_id, False)
-        else: 
+            resultservices.add_result(userservices.active_user_details()[
+                                      'user_id'], task_id, False)
+        else:
             self._correct += 1
-            resultservices.add_result(userservices.active_user_details()['user_id'], task_id, True)
+            resultservices.add_result(userservices.active_user_details()[
+                                      'user_id'], task_id, True)
         self.destroy()
         self._initialize()
-
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
@@ -54,24 +57,23 @@ class TaskView:
             master=self._frame, text=f"Valittu vaikeustaso: {taskservices.return_active_difficulty_str()}")
         difficulty_label.grid(padx=5, pady=5, sticky=constants.EW)
 
-
-
         task_label = ttk.Label(
             master=self._frame, text=f"Tehtävä", font=('Helvetica', 12, 'bold'))
         task_label.grid(padx=5, pady=5, sticky=constants.EW)
 
-        if len(self._task_list)>0:
+        if len(self._task_list) > 0:
             task = self._task_list.pop()
             question_label = ttk.Label(
                 master=self._frame, text=f"{task.question}")
             question_label.grid(padx=5, pady=5, sticky=constants.EW)
 
             def get_choice():
-                value=choice.get()
+                value = choice.get()
                 print(value)
                 self._answer(value, task.task_id)
 
-            answer_options = [(task.correct, 1), (task.wrong1,-1), (task.wrong2,-2), (task.wrong3,-3)]
+            answer_options = [(task.correct, 1), (task.wrong1, -1),
+                              (task.wrong2, -2), (task.wrong3, -3)]
             random.shuffle(answer_options)
             choice = IntVar()
             for option in answer_options:
@@ -88,7 +90,7 @@ class TaskView:
                 text="Vastaa",
                 command=get_choice
             )
-            next_button.grid(padx=5, pady=5, sticky=constants.EW)             
+            next_button.grid(padx=5, pady=5, sticky=constants.EW)
 
         else:
             end_label = ttk.Label(

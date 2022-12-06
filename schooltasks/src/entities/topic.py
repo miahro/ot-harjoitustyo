@@ -1,8 +1,10 @@
-"""moduli sisältää topic eli aihe-luokan"""
+"""moduli sisältää Topic eli aihe-luokan"""
 
 
 class Topic:
-    """luokka aiheen ominaisuuksille"""
+    """luokka aiheen ominaisuuksille
+    Attributes:
+        topic: aihe"""
 
     def __init__(self, topic):
         """alustaa Topic luokan olion
