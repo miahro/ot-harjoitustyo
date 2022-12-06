@@ -17,7 +17,7 @@ Tehtäville on:
 - [Testausdokumentti](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/testaus.md)
 - [tuntikirjanpito](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/tuntikirjanpito.md)
 - [arkkitehtuuri](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/arkkitehtuuri.md)
-- viikko4 [release]()
+- viikko 5 [release]()
 
 ## Asennus
 1. kloonaa repositorio [SchoolTasks](https://github.com/miahro/ot-harjoitustyo)
