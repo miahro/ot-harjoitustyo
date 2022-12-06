@@ -62,7 +62,8 @@ class TaskRepository:
                 correct,
                 wrong1,
                 wrong2,
-                wrong3
+                wrong3, 
+                id
                 FROM Tasks 
                 WHERE topic_id=:topic_id
                 AND difficulty=:difficulty

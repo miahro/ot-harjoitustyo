@@ -20,6 +20,9 @@ class Task:
         self.wrong1 = task_dict["wrong1"]
         self.wrong2 = task_dict["wrong2"]
         self.wrong3 = task_dict["wrong3"]
+        self.task_id = task_dict["task_id"] #tietokannan pkid:n pitäminen luokan
+                                            #entities luokan muuttujana on kyseenalaista
+                                            #mutta tässä tapauksessa turvallisinta
 
     def __repr__(self):
         return  f"Task({self.topic_id}, {self.difficulty}, {self.question}, "\

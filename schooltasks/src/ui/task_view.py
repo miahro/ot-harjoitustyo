@@ -3,7 +3,7 @@ from tkinter import ttk, constants, StringVar, IntVar
 from services.user_services import userservices
 from services.task_services import taskservices
 from services.topic_services import topicservices
-
+from services.result_services import resultservices
 
 class TaskView:
     def __init__(self, root, handle_start, handle_choice):
@@ -25,15 +25,17 @@ class TaskView:
 
 
 
-    def _answer(self, value):
+    def _answer(self, value, task_id):
         #nyt tässä vain paikallinen pistelasku
         #pitää lisätä result_services toiminto, joka päivittää tulostietokantaa
-        if value is None:
+#        if value is None:
+#            self._wrong += 1
+        if value <= 0:
             self._wrong += 1
-        elif value <= 0:
-            self._wrong += 1
+            resultservices.add_result(userservices.active_user_details()['user_id'], task_id, False)
         else: 
             self._correct += 1
+            resultservices.add_result(userservices.active_user_details()['user_id'], task_id, True)
         self.destroy()
         self._initialize()
 
@@ -71,7 +73,7 @@ class TaskView:
             def get_choice():
                 value=choice.get()
                 print(value)
-                self._answer(value)
+                self._answer(value, task.task_id)
 
             answer_options = [(task.correct, 1), (task.wrong1,-1), (task.wrong2,-2), (task.wrong3,-3)]
             random.shuffle(answer_options)
