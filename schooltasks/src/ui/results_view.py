@@ -1,6 +1,6 @@
-from tkinter import ttk, constants
+from tkinter import ttk, constants, Text
 from services.user_services import userservices
-
+from services.result_services import resultservices
 
 class ResultView:
     def __init__(self, root, handle_start, handle_choice):
@@ -17,32 +17,47 @@ class ResultView:
     def destroy(self):
         self._frame.destroy()
 
+    def _totals(self):
+        totals = resultservices.user_totals(userservices.active_user_details()['user_id'])
+        user_label = ttk.Label(
+            master=self._frame, text=f"Oppilaan {userservices.active_user_details()['first_name']} {userservices.active_user_details()['last_name']} tulokset: "
+        )
+        user_label.grid(padx=5, pady=5, sticky=constants.EW)
+        totals_label = ttk.Label(
+            master=self._frame, text=f"Tehtäviä yhteensä: {totals['total_tasks']} \n"
+            f"oikein: {totals['correct']}\n"
+            f"väärin: {totals['fail']}\n"
+            f"oikein prosentteina: {totals['correct_percent']}"
+        )
+        totals_label.grid(padx=5, pady=5, sticky=constants.EW)
+
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame, text="Tulosnäkymä")
-        label.grid(row=4, column=0)
+        label.grid(padx=5, pady=5, sticky=constants.EW)
 
         user_label = ttk.Label(
             master=self._frame, text=f"Kirjautunut käyttäjä: {userservices.active_user_details()['user_id']}")
         user_label.grid(row=8, column=0)
 
+        result_label = ttk.Label(
+            master=self._frame, text=f"Tulokset", font=('Helvetica', 12, 'bold'))
+        result_label.grid(padx=5, pady=5, sticky=constants.EW)
+
+        self._totals()
+
+        #tämä poistetaan kun näyttö on järkevä
         temp_label = ttk.Label(
-            master=self._frame, text=f"Ei mitään järkevää vielä, tulokset tähän")
-        temp_label.grid(row=10, column=0)
+            master=self._frame, text=f"Tämä on vasta alustava tulosnäyttö, parannetaan")
+        temp_label.grid(padx=5, pady=5, sticky=constants.EW)
 
-        # button = ttk.Button(
-        #     master=self._frame,
-        #     text="Palaa alkuun",
-        #     command=self._handle_start
-        # )
 
-        # button.grid(row=10, column=0)
 
         button = ttk.Button(
             master=self._frame,
             text="Palaa takaisin",
             command=self._handle_choice
         )
-        button.grid(row=12, column=0)
+        button.grid(padx=5, pady=5, sticky=constants.EW)
 
         self.pack()
