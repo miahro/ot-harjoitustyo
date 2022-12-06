@@ -48,20 +48,37 @@ class ResultRepository:
         cursor = self._con.cursor()
         sql = """SELECT COUNT(*) FROM Results
                 WHERE person_id=:user_pkid
-                AND result=FALSE"""
+                AND result=FALSE"""               
         result = cursor.execute(sql, {"user_pkid": user_pkid})
         return result.fetchone()
 
 
-    # def get_user_total_correct_by_topic(self, user_pkid, topic_id):
+    def get_user_all_correct(self, user_pkid):
 
-    #     cursor = self._con.cursor()
-    #     sql = """SELECT COUNT(*) FROM Results
-    #             WHERE person_id=:user_pki
-    #             AND result=FALSE"""
-    #     result = cursor.execute(sql, {"user_pkid": user_pkid})
-    #     return result.fetchone()
+        cursor = self._con.cursor()
+        sql = """SELECT Tasks.topic_id, Tasks.difficulty, COUNT(result )
+                FROM Results, Topics, Tasks
+                WHERE
+                    Results.person_id=1 AND
+                    Results.result = TRUE AND
+                    Results.task_id = Tasks.id AND
+                    Tasks.topic_id = Topics.id
+                    GROUP BY Tasks.topic_id, Tasks.difficulty; """
+        result = cursor.execute(sql, {"user_pkid": user_pkid})
+        return result.fetchall()
 
+    def get_user_all_false(self, user_pkid):
 
-# tämä luokka ei ole valmis, tarvitaan lisää hakutoimintoja
+        cursor = self._con.cursor()
+        sql = """SELECT Tasks.topic_id, Tasks.difficulty, COUNT(result )
+                FROM Results, Topics, Tasks
+                WHERE
+                    Results.person_id=1 AND
+                    Results.result = FALSE AND
+                    Results.task_id = Tasks.id AND
+                    Tasks.topic_id = Topics.id
+                    GROUP BY Tasks.topic_id, Tasks.difficulty; """
+        result = cursor.execute(sql, {"user_pkid": user_pkid})
+        return result.fetchall()
+
 resultrepository = ResultRepository()

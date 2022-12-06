@@ -14,20 +14,22 @@ class ResultServices:
                 task_id: tehtävän pkid
                 result: boolean (oikein, väärin) """
         person_id = userrepository.get_pk_id(user_id)[0]
-        # print(type(person_id))
-        # print(type(task_id))
-        # print(type(result))
         resultrepository.add_result(person_id, task_id, result)
-#        resultrepository.add_result(1, 1, False)
-#        resultrepository.add_result(person_id, task_id, result)
-
 
     def user_totals(self, user_id):
         person_id = userrepository.get_pk_id(user_id)[0]
         correct = resultrepository.get_user_total_correct(person_id)[0]
         fail = resultrepository.get_user_total_fail(person_id)[0]
         return {"correct": correct, "fail": fail, "total_tasks": correct+fail,
-                "correct_percent": round(100*correct/(correct+fail), 1)}
+                "correct_percent": 0.0 if correct+fail==0 else round(100*correct/(correct+fail), 1)}
+
+# tämä funktio on kesken, pitää tehdä jäkevä käsittely muotoon, joka voidaan palauttaa UI:lle näytettäväksi
+    def user_details(self, user_id):
+        person_id = userrepository.get_pk_id(user_id)[0]
+        correct = resultrepository.get_user_all_correct(person_id)
+        fail = resultrepository.get_user_all_false(person_id)
+        print(correct)
+        print(fail)
 
 
 resultservices = ResultServices()
