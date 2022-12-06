@@ -34,6 +34,34 @@ class ResultRepository:
         cursor.execute(sql)
         self._con.commit()
 
+    def get_user_total_correct(self, user_pkid):
+
+        cursor = self._con.cursor()
+        sql = """SELECT COUNT(*) FROM Results
+                WHERE person_id=:user_pkid
+                AND result=TRUE"""
+        result = cursor.execute(sql, {"user_pkid": user_pkid})
+        return result.fetchone()
+
+    def get_user_total_fail(self, user_pkid):
+
+        cursor = self._con.cursor()
+        sql = """SELECT COUNT(*) FROM Results
+                WHERE person_id=:user_pkid
+                AND result=FALSE"""
+        result = cursor.execute(sql, {"user_pkid": user_pkid})
+        return result.fetchone()
+
+
+    # def get_user_total_correct_by_topic(self, user_pkid, topic_id):
+
+    #     cursor = self._con.cursor()
+    #     sql = """SELECT COUNT(*) FROM Results
+    #             WHERE person_id=:user_pki
+    #             AND result=FALSE"""
+    #     result = cursor.execute(sql, {"user_pkid": user_pkid})
+    #     return result.fetchone()
+
 
 # tämä luokka ei ole valmis, tarvitaan lisää hakutoimintoja
 resultrepository = ResultRepository()
