@@ -30,14 +30,14 @@ Tehtävillä on:
 - oikea vastausvaihetoehto sekä kolme väärää vastaustavaihtoehtoa "tehty"
 
 ### Tehtävien teko
-Oppilaat tekevät tehtäviä. Alustavasti oppilas valitsee aiheen ja vaikeustason, ja saa 10 tehtävää suoritettavaksi. Tehtävät ovat monivalintatyyppisiä (vaihtoehdot a-d). 
+Oppilaat tekevät tehtäviä. Alustavasti oppilas valitsee aiheen ja vaikeustason, ja saa 10 tehtävää suoritettavaksi. Tehtävät ovat monivalintatyyppisiä (vaihtoehdot a-d). "tehty"
 
 ### Tulosten seuranta
 - oppilaan tekemistä tehtävisä pidetään kirjaa:
-    - aihe 
-    - oikeat / väärät vastaukset
-    - vaikeustaso
-- oppilas voi tarkistaa omat tuloksensa
+    - aihe "tehty"
+    - oikeat / väärät vastaukset "tehty"
+    - vaikeustaso "tehty"
+- oppilas voi tarkistaa omat tuloksensa "osittain tehty"
 - opettaja voi tarkista kaikkien oppilaiden tulokset
 
 ## Mahdollinen jatkokehitys

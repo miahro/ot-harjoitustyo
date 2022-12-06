@@ -37,16 +37,21 @@ Laajennettu olemassaolevia services luokkia, ja lisätty uusia services luokkia.
     - laajennettu task_services luokan toiminnallisuutta
     - korjattu user_services luokkaa
     - luotu uusi topic_services luokka
+    - luotu uusi result_services luokka
 - repositories ja entities luokat:
     - pieniä korjauksia kaikkiin luokkiin
-    - task_repository ja topic_repository luokkiin lisätty hakutoiminnallisuutta
-- käyttöliittymä: valintanäkymään (aiheen ja vaikeustason valinta, valinta tehdäänkö tehtäviä vai näytetäänkö tulokset): lisätty aiheen ja vaikeustason valinnan toiminnallisuus
+    - task_repository, result_repository ja topic_repository luokkiin lisätty hakutoiminnallisuutta
+- käyttöliittymä: 
+    - valintanäkymään (aiheen ja vaikeustason valinta, valinta tehdäänkö tehtäviä vai näytetäänkö tulokset): lisätty aiheen ja vaikeustason valinnan toiminnallisuus
+    - toteututtu tehtävien tekonäkymä
+    - toteutettu alustavasti tulosten tarkastelunäkymä: tämä on vielä hyvin keskeneräinen, näyttää nyt vain tulosten yhteenvedon
 
 Tällä hetkellä toteutettu toiminnallisuus:
 - uuden käytttäjän luonti
 - sisään- ja uloskirjautuminen
 - aiheen ja vaikeustason valinta
+- tehvätien tekeminen
+- osittain tulosten tarkastelu
 
-Vielä totuettamatta:
-- tehtävien tekeminen
-- tulosten tarkastelu
+Vielä toteuttamatta:
+- järkevä ja yksityiskohtaisempi tulosten tarkastelu
