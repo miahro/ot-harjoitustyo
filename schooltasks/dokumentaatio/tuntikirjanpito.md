@@ -15,7 +15,7 @@
 |4 |29.11.| 8    | TaskGenerator apuluokan kirjoitus, käyttöliittymän korjausta, muun koodin korjausta, yksikkötestejä, dokumentaation päivys|
 |5 |3.12.| 4    | Käyttöliittymän laajantaminen, task_services luokan laajentaminen, uusi topic_services luokka|
 |5 |5.12.| 10   |ResultServices luokan toteuttaminen, repositories ja services luokkien laajentamista, käyttöliittymän laajentamista, yksikkötestien laajentamista|
-|5 |6.12.| -    |Käyttöliittymään alustava tulosten tarkastelu, docstringien lisäystä/parantamista, koodin siistimistä, dokumentointia|
+|5 |6.12.| 10    |Käyttöliittymään alustava tulosten tarkastelu, docstringien lisäystä/parantamista, koodin siistimistä, manuaalista testausta, virheiden korjausta, dokumentointia|
 
 
 
@@ -25,8 +25,8 @@
 | 2   | 6   | 
 | 3   | 26  | 
 | 4   | 24   | 
-| 5   | x   | 
+| 5   | 24   | 
 | 6   | x   | 
-| yht | 56 |
+| yht | 80 |
 
 
