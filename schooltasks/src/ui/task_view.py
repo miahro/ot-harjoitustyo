@@ -26,10 +26,6 @@ class TaskView:
 
 
     def _answer(self, value, task_id):
-        #nyt tässä vain paikallinen pistelasku
-        #pitää lisätä result_services toiminto, joka päivittää tulostietokantaa
-#        if value is None:
-#            self._wrong += 1
         if value <= 0:
             self._wrong += 1
             resultservices.add_result(userservices.active_user_details()['user_id'], task_id, False)

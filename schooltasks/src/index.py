@@ -6,7 +6,7 @@ def main():
     """pääohjelma, käynnistää käyttöliittymän"""
 
     window = Tk()
-    window.geometry("700x800")
+    window.geometry("1300x1000")
     window.title("Matematiikan harjoittelusovellus")
 
     ui_view = UI(window)
