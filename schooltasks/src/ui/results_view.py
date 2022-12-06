@@ -35,7 +35,7 @@ class ResultView:
 
         columns = ("difficulty", "total", "correct", "fail", "correct_percent")
 
-        tree = ttk.Treeview(master=self._frame, columns=columns, height=40)
+        tree = ttk.Treeview(master=self._frame, columns=columns, height=20)
         tree.grid(padx=5, pady=5)
 
         tree.heading('#0', text='Aihe')
@@ -49,13 +49,13 @@ class ResultView:
                     f"{totals['correct']}", f"{totals['fail']}", f"{totals['correct_percent']} %"))
 
     def _initialize(self):
-        self._frame = ttk.Frame(master=self._root)
-        label = ttk.Label(master=self._frame, text="Tulosnäkymä")
-        label.grid(padx=5, pady=5, sticky=constants.EW)
+        # self._frame = ttk.Frame(master=self._root)
+        # label = ttk.Label(master=self._frame, text="Tulosnäkymä")
+        # label.grid(padx=5, pady=5, sticky=constants.EW)
 
-        user_label = ttk.Label(
-            master=self._frame, text=f"Kirjautunut käyttäjä: {userservices.active_user_details()['user_id']}")
-        user_label.grid(padx=5, pady=5, sticky=constants.EW)
+        # user_label = ttk.Label(
+        #     master=self._frame, text=f"Kirjautunut käyttäjä: {userservices.active_user_details()['user_id']}")
+        # user_label.grid(padx=5, pady=5, sticky=constants.EW)
 
         result_label = ttk.Label(
             master=self._frame, text=f"Tulokset", font=('Helvetica', 12, 'bold'))
