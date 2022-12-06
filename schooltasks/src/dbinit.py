@@ -1,7 +1,8 @@
 """tietokannan alustusfunktiot"""
 
 from dbcon import db_connection
-
+from services.task_services import taskservices
+from services.topic_services import topicservices
 
 def create_tables(connection):
     """luo tietokantataulut
@@ -72,7 +73,8 @@ def init_db():
     connection = db_connection()
     delete_tables(connection)
     create_tables(connection)
-
+    topicservices.update_topics_db()
+    taskservices.update_tasks_db()
 
 if __name__ == "__main__":
     init_db()
