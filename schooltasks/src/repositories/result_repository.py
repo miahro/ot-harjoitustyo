@@ -65,6 +65,92 @@ class ResultRepository:
         result = cursor.execute(sql, {"user_pkid": user_pkid})
         return result.fetchone()
 
+    def get_user_correct_by_topic(self, user_pkid, topic_pkid):
+        """hakee tietokannasta käyttäjän oikeat vastaukset valitusta aiheesta
+            user_pkid: käyttäjän pkid tietokantataulussa
+        Returns:
+            käyttäjän oikeat vastaukset listana tupleja (aihe_id, vaikeustaso, kpl oikeita)
+            """
+        cursor = self._con.cursor()
+        sql = """SELECT COUNT(result )
+                FROM Results, Topics, Tasks
+                WHERE
+                    Results.person_id=:user_pkid AND
+                    Results.result = TRUE AND
+                    Results.task_id = Tasks.id AND
+                    Tasks.topic_id = Topics.id AND
+                    Tasks.topic_id =:topic_pkid"""
+        result = cursor.execute(sql, {"user_pkid": user_pkid, "topic_pkid": topic_pkid})
+        return result.fetchall()
+
+    def get_user_false_by_topic(self, user_pkid, topic_pkid):
+        """hakee tietokannasta käyttäjän oikeat vastaukset valitusta aiheesta
+            user_pkid: käyttäjän pkid tietokantataulussa
+        Returns:
+            käyttäjän oikeat vastaukset listana tupleja (aihe_id, vaikeustaso, kpl oikeita)
+            """
+        cursor = self._con.cursor()
+        sql = """SELECT COUNT(result )
+                FROM Results, Topics, Tasks
+                WHERE
+                    Results.person_id=:user_pkid AND
+                    Results.result = FALSE AND
+                    Results.task_id = Tasks.id AND
+                    Tasks.topic_id = Topics.id AND
+                    Tasks.topic_id =:topic_pkid """
+        result = cursor.execute(sql, {"user_pkid": user_pkid, "topic_pkid": topic_pkid})
+        return result.fetchall()
+
+
+
+
+    # def get_user_correct_by_topic(self, user_pkid, topic_pkid):
+    #     """hakee tietokannasta käyttäjän oikeat vastaukset valitusta aiheesta
+    #         user_pkid: käyttäjän pkid tietokantataulussa
+    #     Returns:
+    #         käyttäjän oikeat vastaukset listana tupleja (aihe_id, vaikeustaso, kpl oikeita)
+    #         """
+    #     cursor = self._con.cursor()
+    #     sql = """SELECT Tasks.topic_id, Tasks.difficulty, COUNT(result )
+    #             FROM Results, Topics, Tasks
+    #             WHERE
+    #                 Results.person_id=:user_pkid AND
+    #                 Results.result = TRUE AND
+    #                 Results.task_id = Tasks.id AND
+    #                 Tasks.topic_id = Topics.id AND
+    #                 Tasks.topic_id =:topic_pkid
+    #                 GROUP BY Tasks.difficulty; """
+    #     result = cursor.execute(sql, {"user_pkid": user_pkid, "topic_pkid": topic_pkid})
+    #     return result.fetchall()
+
+    # def get_user_false_by_topic(self, user_pkid, topic_pkid):
+    #     """hakee tietokannasta käyttäjän oikeat vastaukset valitusta aiheesta
+    #         user_pkid: käyttäjän pkid tietokantataulussa
+    #     Returns:
+    #         käyttäjän oikeat vastaukset listana tupleja (aihe_id, vaikeustaso, kpl oikeita)
+    #         """
+    #     cursor = self._con.cursor()
+    #     sql = """SELECT Tasks.topic_id, Tasks.difficulty, COUNT(result )
+    #             FROM Results, Topics, Tasks
+    #             WHERE
+    #                 Results.person_id=:user_pkid AND
+    #                 Results.result = FALSE AND
+    #                 Results.task_id = Tasks.id AND
+    #                 Tasks.topic_id = Topics.id AND
+    #                 Tasks.topic_id =:topic_pkid 
+    #                 GROUP BY Tasks.difficulty; """
+    #     result = cursor.execute(sql, {"user_pkid": user_pkid, "topic_pkid": topic_pkid})
+    #     return result.fetchall()
+
+
+
+
+
+
+
+
+
+
     def get_user_all_correct(self, user_pkid):
         """hakee tietokannasta käyttäjän kaikki oikeat vastaukset
             summattuna per aihe per vaikeustaso
@@ -77,7 +163,7 @@ class ResultRepository:
         sql = """SELECT Tasks.topic_id, Tasks.difficulty, COUNT(result )
                 FROM Results, Topics, Tasks
                 WHERE
-                    Results.person_id=1 AND
+                    Results.person_id=:user_pkid AND
                     Results.result = TRUE AND
                     Results.task_id = Tasks.id AND
                     Tasks.topic_id = Topics.id
@@ -97,7 +183,7 @@ class ResultRepository:
         sql = """SELECT Tasks.topic_id, Tasks.difficulty, COUNT(result )
                 FROM Results, Topics, Tasks
                 WHERE
-                    Results.person_id=1 AND
+                    Results.person_id=:user_pkid AND
                     Results.result = FALSE AND
                     Results.task_id = Tasks.id AND
                     Tasks.topic_id = Topics.id

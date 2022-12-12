@@ -21,6 +21,9 @@ class ResultView:
     def _totals(self):
         totals = resultservices.user_totals(
             userservices.active_user_details()['user_id'])
+        by_topic = resultservices.user_results_by_topic_all_topics(
+            userservices.active_user_details()['user_id']
+            )
         user_label = ttk.Label(
             master=self._frame, text=f"Oppilaan {userservices.active_user_details()['first_name']} {userservices.active_user_details()['last_name']} tulokset: "
         )
@@ -35,7 +38,7 @@ class ResultView:
 
         columns = ("difficulty", "total", "correct", "fail", "correct_percent")
 
-        tree = ttk.Treeview(master=self._frame, columns=columns, height=20)
+        tree = ttk.Treeview(master=self._frame, columns=columns, height=7)
         tree.grid(padx=5, pady=5)
 
         tree.heading('#0', text='Aihe')
@@ -47,6 +50,10 @@ class ResultView:
 
         tree.insert('', 'end', iid=0, text="kaikki aiheet", values=(f"kaikki vaikeustasot", f"{totals['total_tasks']}",
                     f"{totals['correct']}", f"{totals['fail']}", f"{totals['correct_percent']} %"))
+        for idx, topic in enumerate(by_topic):
+            tree.insert('', 'end', iid=idx+1, text=f"{topic['topic']}", values=(f"kaikki vaikeustasot", f"{topic['total_tasks']}",
+                f"{topic['correct']}", f"{topic['fail']}", f"{topic['correct_percent']} %"))           
+
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

@@ -39,7 +39,7 @@ class UserRepository:
                 WHERE user_id=:user_id
                 ;"""
         result = cursor.execute(sql, {"user_id": user_id})
-        return result.fetchone()
+        return result.fetchone() 
 
     def get_pwd(self, pk_id):
         """palauttaa salasanan käyttäjän primary id:n perusteella
