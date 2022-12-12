@@ -48,3 +48,24 @@ class TestQuestionGenerator(unittest.TestCase):
         self.assertTrue(final_line_list[4].isdigit())
         self.assertTrue(final_line_list[5].isdigit())
         self.assertTrue(final_line_list[6].strip().isdigit())
+
+    def test_division(self):
+        self.test_question_generator.division()
+        with open(self.test_question_generator.filepath, 'r', encoding='utf-8') as test:
+            final_line = test.readlines()[-1]
+        final_line_list = final_line.split(';')
+        print(final_line_list[0])
+        self.assertEqual(final_line_list[0], '4')
+        self.assertTrue(final_line_list[1].isdigit())
+        self.assertIn("jakolaskun", final_line_list[2])
+        self.assertIn("oikea", final_line_list[2])
+        self.assertIn("jakojäännös", final_line_list[3])
+        self.assertIn("osamäärä", final_line_list[3])
+        self.assertIn("jakojäännös", final_line_list[4])
+        self.assertIn("osamäärä", final_line_list[4])
+        self.assertIn("jakojäännös", final_line_list[5])
+        self.assertIn("osamäärä", final_line_list[5])
+        self.assertIn("jakojäännös", final_line_list[6])
+        self.assertIn("osamäärä", final_line_list[6])
+
+

@@ -73,3 +73,7 @@ class TestUserRepository(unittest.TestCase):
         userrepository.add_user(self.test_student)
         user = userrepository.user_by_user_id("tt1")
         self.assertEqual(user.first_name, self.test_student.first_name)
+
+    def test_user_by_user_id_fail(self):
+        user = userrepository.user_by_user_id("non_existing_id")
+        self.assertIsNone(user)

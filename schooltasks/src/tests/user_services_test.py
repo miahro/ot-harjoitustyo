@@ -7,11 +7,13 @@ from services.user_services import userservices
 
 class TestUserServices(unittest.TestCase):
     def setUp(self):
+        userrepository.delete_all()
         self.userv = userservices
+        self.userv.logout()
 
     def test_init(self):
-        self.assertNotEqual(self.userv, None)
-        self.assertEqual(self.userv.logged_in_user, None)
+        self.assertIsNotNone(self.userv)
+        self.assertIsNone(self.userv.logged_in_user)
 
     def test_validate_inputs(self):
         self.assertEqual(self.userv.validate_inputs(
@@ -36,17 +38,30 @@ class TestUserServices(unittest.TestCase):
             'nimi', 'sukunimi', 'tunnus', 'sala1', 'sala1'), (False, 'käyttäjätunnus on jo olemassa'))
 
     def test_login(self):
-        self.userv.create_new_user('nimi', '', 'tunnus', 'sala1', 'sala1')
+        self.userv.create_new_user('nimi', 'suku', 'tunnus', 'sala1', 'sala1')
         self.assertEqual(self.userv.login("tunnus", "sala1"),
                          (True, "sisäänkirjautuminen käyttäjä tunnus onnistui"))
 
     def test_login_fail(self):
-        self.userv.create_new_user('nimi', '', 'tunnus', 'sala1', 'sala1')
+        self.userv.create_new_user('nimi', 'suku', 'tunnus', 'sala1', 'sala1')
         self.assertEqual(self.userv.login("tunnus", "sala"),
                          (False, "käyttäjätunnus ja salasana eivät täsmää"))
 
+    def test_login_fail_no_user(self):
+        self.userv.create_new_user('nimi', 'suku', 'tunnus', 'sala1', 'sala1')
+        self.assertEqual(self.userv.login("tunnu", "sala1"),
+                         (False, "käyttäjätunnusta ei löydy"))
+
     def test_logout(self):
-        self.userv.create_new_user('nimi', '', 'tunnus', 'sala1', 'sala1')
+        self.userv.create_new_user('nimi', 'suku', 'tunnus', 'sala1', 'sala1')
         self.userv.login("tunnus", "sala1")
         self.userv.logout()
         self.assertEqual(self.userv.logged_in_user, None)
+
+    def test_active_user_details(self):
+        self.userv.create_new_user('nimi', 'sukunimi', 'tunnus', 'sala1', 'sala1')
+        self.userv.login('tunnus', 'sala1')
+        result = self.userv.active_user_details()
+        self.assertEqual(result['first_name'], 'nimi')
+        self.assertEqual(result['last_name'], 'sukunimi')
+        self.assertEqual(result['user_id'], 'tunnus')

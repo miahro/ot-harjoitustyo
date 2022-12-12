@@ -5,7 +5,7 @@ from dbcon import connection
 from repositories.task_repository import taskrepository
 
 
-class TestTopicRepository(unittest.TestCase):
+class TestTaskRepository(unittest.TestCase):
     def setUp(self):
         taskrepository.delete_all()
 
@@ -38,3 +38,24 @@ class TestTopicRepository(unittest.TestCase):
         taskrepository.update_db(task)
         taskrepository.update_db(task2)
         self.assertEqual(taskrepository.min_difficulty(), 1)
+
+    def test_get_random_task_list(self):
+        for i in range(10):
+            task = [[1, 1, "kysymys", "oikea", "väärä1", "väärä2", "väärä3"]]
+            task2 = [[1, 2, "kysymys", "oikea", "väärä1", "väärä2", "väärä3"]]
+            task3 = [[1, 1, "kysymys", "oikea", "väärä1", "väärä2", "väärä3"]]
+            task4 = [[2, 2, "kysymys", "oikea", "väärä1", "väärä2", "väärä3"]]
+            taskrepository.update_db(task)
+            taskrepository.update_db(task2)
+            taskrepository.update_db(task3)
+            taskrepository.update_db(task4)            
+
+        result = taskrepository.get_random_task_list(1,1,5)
+        self.assertEqual(len(result), 5)
+        self.assertEqual(result[0].topic_id, 1)
+        self.assertEqual(result[0].difficulty, 1)
+
+        result = taskrepository.get_random_task_list(2,2,5)
+        self.assertEqual(len(result), 5)
+        self.assertEqual(result[0].topic_id, 2)
+        self.assertEqual(result[0].difficulty, 2)
