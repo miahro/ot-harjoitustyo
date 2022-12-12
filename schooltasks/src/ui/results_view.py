@@ -49,7 +49,7 @@ class ResultView:
                     f"{totals['correct']}", f"{totals['fail']}", f"{totals['correct_percent']} %"))
 
     def _initialize(self):
-        # self._frame = ttk.Frame(master=self._root)
+        self._frame = ttk.Frame(master=self._root)
         # label = ttk.Label(master=self._frame, text="Tulosnäkymä")
         # label.grid(padx=5, pady=5, sticky=constants.EW)
 

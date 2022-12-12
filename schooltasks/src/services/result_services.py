@@ -46,6 +46,9 @@ class ResultServices:
         fail = resultrepository.get_user_all_false(person_id)
         print(correct)
         print(fail)
-
+        
+    def delete_all(self):
+        """tyhjentää tietokannan Results taulun"""
+        self.resultrepository.delete_all()
 
 resultservices = ResultServices()

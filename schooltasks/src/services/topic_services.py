@@ -42,6 +42,9 @@ class TopicServices:
         if self.active_topic is None:
             return "aihetta ei valittu"
         return self.topicrepository.topic_by_id(self.active_topic)
-
+    
+    def delete_all(self):
+        """poistaa kaikki tiedot Topics tietokantataulusta"""
+        self.topicrepository.delete_all()
 
 topicservices = TopicServices()
