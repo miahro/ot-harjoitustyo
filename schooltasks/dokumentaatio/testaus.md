@@ -25,3 +25,5 @@ Ohjelman toiminnallisuuksia on testattu manuaalisesti sekä käyttämällä ohje
 
 Manuaalisessa toiminnallisuustestauksessa ilmi tulleet virheet on korjattu. 
 
+
+
