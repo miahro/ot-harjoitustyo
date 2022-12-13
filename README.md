@@ -17,7 +17,7 @@ Tehtäville on:
 - [Testausdokumentti](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/testaus.md)
 - [Tuntikirjanpito](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/tuntikirjanpito.md)
 - [Arkkitehtuuri](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/arkkitehtuuri.md)
-- [Käyttöohje] (https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/kayttoohje.md)
+- [Käyttöohje](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/kayttoohje.md)
 - viikko 5 [release](https://github.com/miahro/ot-harjoitustyo/releases/tag/viikko5)
 - viikko 6 [release](https://github.com/miahro/ot-harjoitustyo/releases/tag/viikko6)
 
