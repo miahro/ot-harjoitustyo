@@ -1,8 +1,6 @@
 """sisältää luoka TaskServices"""
 
 from repositories.task_repository import taskrepository
-#from repositories.task_repository import TaskRepository
-#from repositories.user_repository import userrepository
 
 
 class TaskServices:
