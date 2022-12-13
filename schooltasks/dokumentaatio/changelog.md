@@ -55,3 +55,13 @@ Tällä hetkellä toteutettu toiminnallisuus:
 
 Vielä toteuttamatta:
 - järkevä ja yksityiskohtaisempi tulosten tarkastelu
+
+## Viikko 6:
+Laajennettu ja korjattu olemassaolevia services ja repositories luokkia. Laajennettu/parannettu käyttöliittymää. 
+- korjattu virheitä SQL-kyselyissä
+- korjattu virheitä käyttöliittymässä
+- toteutettun laajempi tulosten näyttä (muutoksia sekä ui.ResultView että ResultServices ja ResultRepository luokassa
+- yritetty toteuttaa tulosten graafinen esitys, mutta tämä jäi kesken ja poistettiin git repositoriosta
+
+Vielä toteuttamaton toiminnallisuus:
+-tulosten graafinen esittäminen käyttäen ulkoista (matplotlib) kirjastoa

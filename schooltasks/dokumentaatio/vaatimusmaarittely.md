@@ -37,7 +37,7 @@ Oppilaat tekevät tehtäviä. Alustavasti oppilas valitsee aiheen ja vaikeustaso
     - aihe "tehty"
     - oikeat / väärät vastaukset "tehty"
     - vaikeustaso "tehty"
-- oppilas voi tarkistaa omat tuloksensa "osittain tehty"
+- oppilas voi tarkistaa omat tuloksensa "tehty"
 - opettaja voi tarkista kaikkien oppilaiden tulokset
 
 ## Mahdollinen jatkokehitys

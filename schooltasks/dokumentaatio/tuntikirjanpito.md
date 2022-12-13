@@ -16,6 +16,9 @@
 |5 |3.12.| 4    | Käyttöliittymän laajantaminen, task_services luokan laajentaminen, uusi topic_services luokka|
 |5 |5.12.| 10   |ResultServices luokan toteuttaminen, repositories ja services luokkien laajentamista, käyttöliittymän laajentamista, yksikkötestien laajentamista|
 |5 |6.12.| 10    |Käyttöliittymään alustava tulosten tarkastelu, docstringien lisäystä/parantamista, koodin siistimistä, manuaalista testausta, virheiden korjausta, dokumentointia|
+|6 |11.12.| 3    |Testikattavuuden parantamista, virheiden korjausta|
+|6 |12.12.| 8    |Yritetty toteuttaa tulosten graafinen esitys matplotlib ulkoisella kirjastolla, tämä jäi viellä kesken. Docstringien lisäystä, testien lisäystä, services ja repositories luokkien laajennusta, käyttöliittymän parantelua|
+|6 |13.12.| 8    | Käyttöohjeen laatiminen, arkkitehtuurikuvauksen laajentaminen, koodin siistimistä, testausta, muun dokumentaation päivitys|
 
 
 
@@ -26,7 +29,7 @@
 | 3   | 26  | 
 | 4   | 24   | 
 | 5   | 24   | 
-| 6   | x   | 
-| yht | 80 |
+| 6   | 19   | 
+| yht | 99 |
 
 
