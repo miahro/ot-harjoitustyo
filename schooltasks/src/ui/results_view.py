@@ -1,3 +1,4 @@
+
 from tkinter import ttk, constants, Text, Entry
 from services.user_services import userservices
 from services.result_services import resultservices
@@ -23,18 +24,12 @@ class ResultView:
             userservices.active_user_details()['user_id'])
         by_topic = resultservices.user_results_by_topic_all_topics(
             userservices.active_user_details()['user_id']
-            )
+        )
         user_label = ttk.Label(
             master=self._frame, text=f"Oppilaan {userservices.active_user_details()['first_name']} {userservices.active_user_details()['last_name']} tulokset: "
         )
         user_label.grid(padx=5, pady=5, sticky=constants.EW)
-        # totals_label = ttk.Label(
-        #     master=self._frame, text=f"Tehtäviä yhteensä: {totals['total_tasks']} \n"
-        #     f"oikein: {totals['correct']}\n"
-        #     f"väärin: {totals['fail']}\n"
-        #     f"oikein prosentteina: {totals['correct_percent']}"
-        # )
-        # totals_label.grid(padx=5, pady=5, sticky=constants.EW)
+
 
         columns = ("difficulty", "total", "correct", "fail", "correct_percent")
 
@@ -52,17 +47,10 @@ class ResultView:
                     f"{totals['correct']}", f"{totals['fail']}", f"{totals['correct_percent']} %"))
         for idx, topic in enumerate(by_topic):
             tree.insert('', 'end', iid=idx+1, text=f"{topic['topic']}", values=(f"kaikki vaikeustasot", f"{topic['total_tasks']}",
-                f"{topic['correct']}", f"{topic['fail']}", f"{topic['correct_percent']} %"))           
-
+                                                                                f"{topic['correct']}", f"{topic['fail']}", f"{topic['correct_percent']} %"))
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
-        # label = ttk.Label(master=self._frame, text="Tulosnäkymä")
-        # label.grid(padx=5, pady=5, sticky=constants.EW)
-
-        # user_label = ttk.Label(
-        #     master=self._frame, text=f"Kirjautunut käyttäjä: {userservices.active_user_details()['user_id']}")
-        # user_label.grid(padx=5, pady=5, sticky=constants.EW)
 
         result_label = ttk.Label(
             master=self._frame, text=f"Tulokset", font=('Helvetica', 12, 'bold'))
