@@ -59,7 +59,8 @@ class TestUserServices(unittest.TestCase):
         self.assertEqual(self.userv.logged_in_user, None)
 
     def test_active_user_details(self):
-        self.userv.create_new_user('nimi', 'sukunimi', 'tunnus', 'sala1', 'sala1')
+        self.userv.create_new_user(
+            'nimi', 'sukunimi', 'tunnus', 'sala1', 'sala1')
         self.userv.login('tunnus', 'sala1')
         result = self.userv.active_user_details()
         self.assertEqual(result['first_name'], 'nimi')

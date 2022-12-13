@@ -67,5 +67,3 @@ class TestQuestionGenerator(unittest.TestCase):
         self.assertIn("osamäärä", final_line_list[5])
         self.assertIn("jakojäännös", final_line_list[6])
         self.assertIn("osamäärä", final_line_list[6])
-
-

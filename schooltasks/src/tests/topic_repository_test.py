@@ -17,9 +17,8 @@ class TestTopicRepository(unittest.TestCase):
         self.assertEqual(isfile(DB_FILE_PATH), True)
 
     def test_table_exists(self):
-         self.assertEqual(connection.execute(
+        self.assertEqual(connection.execute(
             "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Topics';").fetchone()[0], 1)
- 
 
     def test_read_from_file(self):
         result = topicrepository.read_from_file()
