@@ -93,4 +93,5 @@ class TopicRepository:
         cursor.execute(sql)
         self._con.commit()
 
+
 topicrepository = TopicRepository()
