@@ -1,6 +1,5 @@
 """yksikkötestit TaskServices luokalle"""
 import unittest
-#from dbcon import connection
 from repositories.task_repository import taskrepository
 from services.task_services import TaskServices
 
