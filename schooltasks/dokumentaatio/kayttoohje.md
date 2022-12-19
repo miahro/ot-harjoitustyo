@@ -111,4 +111,4 @@ Kaikki aiheet yhteensä ja aiheittain näytetään:
 
 Lisäksi klikkaamalla "Näytä tulosten yksityiskohdat" avautuu erilliseen ikkunaan graafinen esitys oppilaan tuloksista tarkemmin.
 
-![ResultDetal]()
+![ResultDetail](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/kuvat/ohte_result_detail.png)
