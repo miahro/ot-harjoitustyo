@@ -112,7 +112,7 @@ class ResultRepository:
             käyttäjän oikeat vastaukset listana tupleja (aihe, vaikeustaso, kpl oikeita)
             """
         cursor = self._con.cursor()
-        sql = """SELECT Topics.topic, Tasks.difficulty, COUNT(result )
+        sql = """SELECT Topics.topic, Tasks.difficulty, COUNT(result)
                 FROM Results, Topics, Tasks
                 WHERE
                     Results.person_id=:user_pkid AND
@@ -153,7 +153,7 @@ class ResultRepository:
             käyttäjän kaikki vastaukset listana tupleja (vaikeustaso, kpl yhteensä)
             """
         cursor = self._con.cursor()
-        sql = """SELECT Tasks.difficulty, COUNT(result )
+        sql = """SELECT Tasks.difficulty, COUNT(result)
                 FROM Results, Topics, Tasks
                 WHERE
                     Results.person_id=:user_pkid AND
