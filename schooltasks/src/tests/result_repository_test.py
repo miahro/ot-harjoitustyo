@@ -35,8 +35,8 @@ class TestResultRepository(unittest.TestCase):
 
     def test_get_user_all_correct(self):
         result = resultrepository.get_user_all_correct(1)
-        self.assertEqual(result[0], ('yhteenlasku',1,3))
+        self.assertEqual(result[0], ('yhteenlasku', 1, 3))
 
     def test_get_user_all_false(self):
         result = resultrepository.get_user_all_false(1)
-        self.assertEqual(result[0], ('yhteenlasku',1,2))
+        self.assertEqual(result[0], ('yhteenlasku', 1, 2))

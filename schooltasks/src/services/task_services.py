@@ -23,7 +23,6 @@ class TaskServices:
         """hakee joukon saunnaisia tehtäviä
         Args
             topic_id: aihetunniste
-            difficulty: vaikeustaso
             pcs: palautettavien tehvätien määrä
         Returns:
             lista tehtävä-olioita"""

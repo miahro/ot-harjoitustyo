@@ -1,9 +1,9 @@
 """sisältää luokan ResultServices"""
 
+import numpy as np
 from repositories.result_repository import resultrepository
 from repositories.user_repository import userrepository
 from repositories.topic_repository import topicrepository
-
 
 class ResultServices:
     """luokka tulosten palveluille"""
@@ -57,13 +57,10 @@ class ResultServices:
                 if correct+fail == 0
                 else round(100*correct/(correct+fail), 1)}
 
-
     def user_results_by_topic_all_topics(self, user_id):
         """"hakee käyttäjän tulokset kaikista aiheista
-        aiheen mukaan lajiteltuna
         Args:
             user_id: käyttäjätunnus
-        Returns:
             lista tuloksissa, lista sanakirjoja per aihe
         """
         topics = topicrepository.all_topics()
@@ -72,30 +69,43 @@ class ResultServices:
             result_by_topic.append(self.user_results_by_topic(user_id, topic))
         return result_by_topic
 
-#tämä metodi on kesken, ei toimi kunnolla, eikä tätä vielä käytä mikään muu sovelluksen osa,
-# joten kommentoitu pois. Tarvitaan ja korjataan loppupalautukseen
+    def user_details(self, user_id):
+        """hakee käyttäjän tulosten yksityiskohdat
+        Args:
+            user_id: käyttäjätunnus
+        Returns:
+            tulokset sanakirjana
+                keyes, values
+                    sisältö: all, correct, fail (kaikki, oikeat ja väärät, sanakirjoja)
+                    keys, values:
+                        topic: kysymyksen aihe
+                            np.array(2,x): vaikeustaso
+                            np.array(2,x): yhteensä vastauksia (kaikki, oikeata tai vääriä)
 
-    # def user_details(self, user_id):
-    #     """hakee käyttäjän tulosten yksityiskohdat
-    #     Args:
-    #         user_id: käyttäjätunnus
-    #     Returns:
-    #         EI VIELÄ MITÄÄN, TÄMÄ ON KESKEN"""
-    #     person_id = userrepository.get_pk_id(user_id)[0]
-    #     correct = resultrepository.get_user_all_correct(person_id)
-    #     fail = resultrepository.get_user_all_false(person_id)
-    #     all_topics = topicrepository.all_topics()
-    #     all = {}
-    #     all = all.fromkeys(all_topics, )
-    #     for topic in all.keys():
-    #         topic_id = topicrepository.id_by_topic(topic)
-    #         lst = []
-    #         print(f"topic_id {topic_id}")
-    #         lst = [list(item) for item in (
-    #             resultrepository.get_user_details_by_topic(person_id, topic_id))]
-    #         all[topic] = lst
-    #     lst = [list(ele) for ele in all]
-    #     return all
+
+        """
+        person_id = userrepository.get_pk_id(user_id)[0]
+        all_topics = topicrepository.all_topics()
+        all_results = {}
+        all_results = all_results.fromkeys(all_topics, )
+        correct = {}
+        fail = {}
+        correct = correct.fromkeys(all_topics, )
+        fail = fail.fromkeys(all_topics,)
+        for topic in all_results.keys():
+            topic_id = topicrepository.id_by_topic(topic)
+
+            all_results[topic] = np.array(resultrepository.get_user_details_by_topic_all(
+                person_id, topic_id)).reshape(-1, 2).T
+
+            correct[topic] = np.array(resultrepository.get_user_details_by_topic_correct(
+                person_id, topic_id)).reshape(-1, 2).T
+
+
+            fail[topic] = np.array(resultrepository.get_user_details_by_topic_fail(
+                person_id, topic_id)).reshape(-1, 2).T
+        print(all_results)
+        return {'all': all_results, 'correct': correct, 'fail': fail}
 
     def delete_all(self):
         """tyhjentää tietokannan Results taulun"""

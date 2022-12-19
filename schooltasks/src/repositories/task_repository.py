@@ -30,11 +30,20 @@ class TaskRepository:
         if not self.check_file_path():
             return []
         tasks = []
+
         with open(TASKS_INPUT_PATH, 'r', encoding='utf-8') as file:
             csv_reader = csv.reader(file, delimiter=';')
             next(csv_reader)
             for line in csv_reader:
-                tasks.append(line)
+                tasks.append(tuple(line))
+
+
+        # with open(TASKS_INPUT_PATH, 'r', encoding='utf-8') as file:
+        #     csv_reader = csv.reader(file, delimiter=';')
+        #     next(csv_reader)
+        #     for line in csv_reader:
+        #         tasks.append(line)
+
         return tasks
 
     def update_db(self, tasks):

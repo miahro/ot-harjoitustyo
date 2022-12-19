@@ -143,7 +143,7 @@ class ResultRepository:
         result = cursor.execute(sql, {"user_pkid": user_pkid})
         return result.fetchall()
 
-    def get_user_details_by_topic(self, user_pkid, topic_pkid):
+    def get_user_details_by_topic_all(self, user_pkid, topic_pkid):
         """hakee tietokannasta käyttäjän kaikki vastaukset
             summattuna per aihe per vaikeustaso
         Args:
@@ -160,6 +160,54 @@ class ResultRepository:
                     Results.task_id = Tasks.id AND
                     Tasks.topic_id = Topics.id AND
                     Topics.id =:topic_pkid
+                    GROUP BY Tasks.difficulty;"""
+
+        result = cursor.execute(
+            sql, {"user_pkid": user_pkid, "topic_pkid": topic_pkid})
+        return result.fetchall()
+
+    def get_user_details_by_topic_correct(self, user_pkid, topic_pkid):
+        """hakee tietokannasta käyttäjän kaikki vastaukset
+            summattuna per aihe per vaikeustaso
+        Args:
+            user_pkid: käyttäjän pkid tietokantataulussa
+            topic_pkid: aiheen pkid tietokannassa
+        Returns:
+            käyttäjän kaikki vastaukset listana tupleja (vaikeustaso, kpl yhteensä)
+            """
+        cursor = self._con.cursor()
+        sql = """SELECT Tasks.difficulty, COUNT(result )
+                FROM Results, Topics, Tasks
+                WHERE
+                    Results.person_id=:user_pkid AND
+                    Results.task_id = Tasks.id AND
+                    Tasks.topic_id = Topics.id AND
+                    Topics.id =:topic_pkid AND
+                    Results.result = True
+                    GROUP BY Tasks.difficulty;"""
+
+        result = cursor.execute(
+            sql, {"user_pkid": user_pkid, "topic_pkid": topic_pkid})
+        return result.fetchall()
+
+    def get_user_details_by_topic_fail(self, user_pkid, topic_pkid):
+        """hakee tietokannasta käyttäjän kaikki vastaukset
+            summattuna per aihe per vaikeustaso
+        Args:
+            user_pkid: käyttäjän pkid tietokantataulussa
+            topic_pkid: aiheen pkid tietokannassa
+        Returns:
+            käyttäjän kaikki vastaukset listana tupleja (vaikeustaso, kpl yhteensä)
+            """
+        cursor = self._con.cursor()
+        sql = """SELECT Tasks.difficulty, COUNT(result )
+                FROM Results, Topics, Tasks
+                WHERE
+                    Results.person_id=:user_pkid AND
+                    Results.task_id = Tasks.id AND
+                    Tasks.topic_id = Topics.id AND
+                    Topics.id =:topic_pkid AND
+                    Results.result = False
                     GROUP BY Tasks.difficulty;"""
 
         result = cursor.execute(

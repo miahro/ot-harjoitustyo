@@ -1,7 +1,7 @@
 """sisältää luokan QuestionGenerator"""
 from random import choice, sample
 import csv
-from config import TASKS_INPUT_PATH
+from config import TASKS_INPUT_PATH, DIFFICULTY_RANGE
 
 
 class QuestionGenerator:
@@ -14,7 +14,7 @@ class QuestionGenerator:
         """luo yhteenlaskukysymykset"""
         std_part = "Valitse seuraavan yhteenlaskun oikea tulos: "
         task_list = []
-        for difficulty in range(1, 11):
+        for difficulty in DIFFICULTY_RANGE:
             for _ in range(1, 10*difficulty+1):
                 task = {}
                 task["topic"] = 1
@@ -38,7 +38,7 @@ class QuestionGenerator:
         """"luo vähennyslaskukysymykset"""
         std_part = "Valitse seuraavan vähennyslaskun oikea tulos: "
         task_list = []
-        for difficulty in range(1, 11):
+        for difficulty in DIFFICULTY_RANGE:
             for _ in range(1, 10*difficulty+1):
                 task = {}
                 task["topic"] = 2
@@ -64,7 +64,7 @@ class QuestionGenerator:
         """luo kertolaskukysymykset"""
         std_part = "Valitse seuraavan kertolaskun oikea tulos: "
         task_list = []
-        for difficulty in range(1, 11):
+        for difficulty in DIFFICULTY_RANGE:
             for _ in range(1, 10*difficulty+1):
                 task = {}
                 task["topic"] = 3
@@ -89,7 +89,7 @@ class QuestionGenerator:
         """luo jakolasku kysymykset"""
         std_part = "Valitse seuraavan jakolaskun oikea tulos: "
         task_list = []
-        for difficulty in range(1, 11):
+        for difficulty in DIFFICULTY_RANGE:
             for _ in range(1, 10*difficulty+1):
                 task = {}
                 task["topic"] = 4
@@ -151,3 +151,5 @@ def generate():
 
 if __name__ == "__main__":
     generate()
+
+questiongenerator = QuestionGenerator()

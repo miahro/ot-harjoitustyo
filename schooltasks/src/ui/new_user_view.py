@@ -1,9 +1,25 @@
+"""moduli sisältää NewUserView luokan"""
 from tkinter import ttk, constants, StringVar
 from services.user_services import userservices
 
 
 class NewUserView:
+    """Luokka uuden käyttäjän luontinäkymää varten
+    Attributes:
+        root: pääohjelman TK-inter -elementti, johon näkymä alustetaan
+        handle_start: metodikahva aloitusnäkymälle
+        _frame: TK-Inter frame-widget
+        _message: näkymän näyttämä viesti (virhe tai onnistunut luonti)     
+        _message_label: TK-inter Label-widget  
+    """
+
     def __init__(self, root, handle_start):
+        """Luokan konstruktori
+
+        Args:
+            root: pääohjelman TK-inter -elementti, johon näkymä alustetaan
+            handle_start: metodikahva aloitusnäkymälle
+        """
         self._root = root
         self._handle_start = handle_start
         self._frame = None
@@ -13,12 +29,18 @@ class NewUserView:
         self._initialize()
 
     def pack(self):
+        """näyttää näkymän"""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """tuhoaa näkymänt"""
         self._frame.destroy()
 
     def _new_user(self):
+        """lukee uuden käyttäjän tiedot syötekentistä,
+        kutsuu sovelluslogiikan uuden käyttäjän luontia
+        ja näyttää viestin (virhe tai ok)
+        """
         first_name = self._first_name_entry.get()
         last_name = self._last_name_entry.get()
         user_id = self._user_id_entry.get()
@@ -31,6 +53,7 @@ class NewUserView:
         self._clear_entry_fields()
 
     def _clear_entry_fields(self):
+        """tyhjentää käyttäjän tiedot syötekentistä"""
         self._first_name_entry.delete(0, 'end')
         self._last_name_entry.delete(0, 'end')
         self._user_id_entry.delete(0, 'end')
@@ -38,17 +61,12 @@ class NewUserView:
         self._passwd2_entry.delete(0, 'end')
 
     def _show_message(self, message):
+        """näyttää viestin käyttäjänä luonnista (virhe tai ok)"""
         self._message.set(message)
         self._message_label.grid()
 
-    # def _show_error(self, message):
-    #     self._error.set(message)
-    #     self._error_label.grid()
-
-    def _hide_message(self):
-        self._message_label.grid_remove()
-
     def _initialize_input_fields(self):
+        """alustaa käyttäjätietojen syöttökentät"""
 
         first_name_label = ttk.Label(master=self._frame, text="Etunimi")
         self._first_name_entry = ttk.Entry(master=self._frame)
@@ -77,6 +95,7 @@ class NewUserView:
         self._passwd2_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _initialize(self):
+        """Alustaa näkymän"""
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame, text="Uuden käyttäjän luonti")
         label.grid(row=0, column=0)
@@ -104,5 +123,3 @@ class NewUserView:
             command=self._handle_start
         )
         return_button.grid(padx=5, pady=5, sticky=constants.EW)
-
-        # self._hide_message()

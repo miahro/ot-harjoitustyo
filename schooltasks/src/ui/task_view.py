@@ -1,5 +1,6 @@
+"""moduli sisältää luokan TaskView"""
 import random
-from tkinter import ttk, constants, StringVar, IntVar
+from tkinter import ttk, constants, IntVar
 from services.user_services import userservices
 from services.task_services import taskservices
 from services.topic_services import topicservices
@@ -7,9 +8,25 @@ from services.result_services import resultservices
 
 
 class TaskView:
-    def __init__(self, root, handle_start, handle_choice):
+    """Luokka tehtävien tekemisnäyttöä varten
+    Attributes:
+        root: pääohjelman TK-inter -elementti, johon näkymä alustetaan
+        handle_choice: metodikahva valintänäkymälle
+        frame: TK-Inter Frame-widget
+        task_list: taskservices olion palauttama 10:n tehtävän sarja
+        correct: oikeat vastaukset kierroksella, tämä vaina paikalista näyttöä varten
+        wrong: väärät vastaukset kierroksella, tämä vaina paikalista näyttöä varten
+
+    """
+
+    def __init__(self, root, handle_choice):
+        """Luokan konstruktori
+
+        Args:
+            root: pääohjelman TK-inter -elementti, johon näkymä alustetaan
+            handle_choice: metodikahva valintänäkymälle
+        """
         self._root = root
-        self._handle_start = handle_start
         self._handle_choice = handle_choice
         self._frame = None
         self._task_list = taskservices.get_tasks(
@@ -22,12 +39,20 @@ class TaskView:
         self._initialize()
 
     def pack(self):
+        """Näyttää näkymän"""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tuhoaa näkymän"""
         self._frame.destroy()
 
     def _answer(self, value, task_id):
+        """Kutsuu sovelluslogiikan tulosten päivitysmetodia
+
+        Args:
+            value: vastauksen arvo, 1 jos oikein, muuten negatiivinen
+            task_id: tehtävän tunniste
+        """
         if value <= 0:
             self._wrong += 1
             resultservices.add_result(userservices.active_user_details()[
@@ -40,6 +65,7 @@ class TaskView:
         self._initialize()
 
     def _initialize(self):
+        """Alustaa näkymän"""
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame, text="Tehtävien tekeminen", font=(
             'Helvetica', 12, 'bold'))
@@ -69,7 +95,6 @@ class TaskView:
 
             def get_choice():
                 value = choice.get()
-                print(value)
                 self._answer(value, task.task_id)
 
             answer_options = [(task.correct, 1), (task.wrong1, -1),

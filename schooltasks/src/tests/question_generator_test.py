@@ -3,12 +3,13 @@ import unittest
 from entities.user import User
 from repositories.user_repository import userrepository
 from services.user_services import userservices
-from question_generator import QuestionGenerator
+from question_generator import QuestionGenerator, questiongenerator
 
 
 class TestQuestionGenerator(unittest.TestCase):
     def setUp(self):
-        self.test_question_generator = QuestionGenerator()
+#        self.test_question_generator = QuestionGenerator()
+        self.test_question_generator = questiongenerator
 
     def test_addition(self):
         self.test_question_generator.addition()

@@ -2,6 +2,7 @@
 
 from repositories.topic_repository import topicrepository
 
+
 class TopicServices:
     """luokka aiheiden palveluita varten
     Attributes:
@@ -12,7 +13,6 @@ class TopicServices:
         """konstruktori alustaaa tyhjän olion ja käyttää taskrepository oliota"""
         self.topicrepository = topicrepository
         self.active_topic = None
-
 
     def update_topics_db(self):
         """lukee tehtävät cvs-tiedostosta ja päivittää tietokannan tehtävät"""

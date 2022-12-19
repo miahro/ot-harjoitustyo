@@ -1,8 +1,27 @@
+"""sisältää luokan StartView"""
+
 from tkinter import ttk, constants
 
 
 class StartView:
+    """Alkunäkymä
+
+    Attributes:
+        root: pääohjelman TK-inter -elementti, johon näkymä alustetaa
+        handle_login: metodikahva sisäänkirjautumisnäkymälle
+        handle_new_user: metodikahva uuden käyttäjän luontinäkymälle
+        frame: TK-Inter Frame-widget
+
+    """
+
     def __init__(self, root, handle_login, handle_new_user):
+        """Luokan konstruktori
+
+        Args:
+            root: pääohjelman TK-inter -elementti, johon näkymä alustetaa
+            handle_login: metodikahva sisäänkirjautumisnäkymälle
+            handle_new_user: metodikahva uuden käyttäjän luontinäkymälle
+        """
         self._root = root
         self._handle_login = handle_login
         self._handle_new_user = handle_new_user
@@ -11,15 +30,16 @@ class StartView:
         self._initialize()
 
     def pack(self):
+        """näyttää näkymänt"""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """tuhoaa näkymän"""
         self._frame.destroy()
 
     def _initialize(self):
+        """alustaa näkymän"""
         self._frame = ttk.Frame(master=self._root)
-        # label = ttk.Label(master=self._frame, text="Start view")
-        # label.grid(row=0, column=0)
 
         login_button = ttk.Button(
             master=self._frame,
@@ -28,7 +48,6 @@ class StartView:
         )
 
         login_button.grid(padx=5, pady=5, sticky=constants.EW)
-        #login_button.grid(row=4, column=0)
 
         new_user_button = ttk.Button(
             master=self._frame,
@@ -36,4 +55,3 @@ class StartView:
             command=self._handle_new_user
         )
         new_user_button.grid(padx=5, pady=5, sticky=constants.EW)
-        #button.grid(row=6, column=0)

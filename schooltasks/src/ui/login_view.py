@@ -1,13 +1,32 @@
+"""Sisältää luokan LoginView"""
 from tkinter import ttk, constants, StringVar
 from ui.choice_view import ChoiceView
 from services.user_services import userservices
 
 
 class LoginView:
-    def __init__(self, root, handle_start, handle_choice, show_choice_view, show_start_view):
+    """Luokka sisäänkirjautumisnäkymää varten
+    Attributes:
+        root: pääohjelman TK-inter -elementti, johon näkymä alustetaan
+        handle_start: metodikahva alkunäkymälle
+        show_choice_view: viittaus valintanäkymään
+        show_start_view: viittaus aloitusnäkymään
+        self._frame: TK-Inter widget
+
+    """
+
+    def __init__(self, root, show_choice_view, show_start_view):
+        """Luokan konstruktori
+
+        Args:
+            root: pääohjelman TK-inter -elementti, johon näkymä alustetaan
+            handle_start: metodikahva alkunäkymälle
+            show_start_view: viittaus aloitusnäkymään
+            show_start_view: viittaus aloitusnäkymään
+            self._frame: TK-Inter widget
+        """
         self._root = root
-        self._handle_start = handle_start
-        self._handle_choice = handle_choice
+        #self._handle_start = handle_start
         self._show_choice_view = show_choice_view
         self._show_start_view = show_start_view
         self._frame = None
@@ -15,12 +34,17 @@ class LoginView:
         self._initialize()
 
     def pack(self):
+        """Näyttää näkymän"""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tuhoaa näkymän"""
         self._frame.destroy()
 
     def _login(self):
+        """Lukee sisäänkirjautumistiedot ja kutsuu sovelluslogiikan sisäänkirjautumismetodia
+        siirtyy valintanäkymään jos kirjautuminen onnistui
+        näyttää virheviestin, jos kirjautumminen ei onnistunut"""
         user_id = self._user_id_entry.get()
         passwd = self._passwd_entry.get()
 
@@ -32,13 +56,12 @@ class LoginView:
             self._clear_entry_fields()
 
     def _clear_entry_fields(self):
+        """tyhjentää sisäänkirjautumiskentät"""
         self._user_id_entry.delete(0, 'end')
         self._passwd_entry.delete(0, 'end')
 
-    def _hide_message(self):
-        self._message_label.grid_remove()
-
     def _initialize_input_fields(self):
+        """alustaa sisäänkirjautumiskentät"""
 
         user_id_label = ttk.Label(master=self._frame, text="Käyttäjätunnus")
         self._user_id_entry = ttk.Entry(master=self._frame)
@@ -51,10 +74,12 @@ class LoginView:
         self._passwd_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _show_message(self, message):
+        """näyttää virheviestin"""
         self._message.set(message)
         self._message_label.grid()
 
     def _initialize(self):
+        """alustaa näkymän"""
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame, text="Sisään kirjautuminen")
         label.grid(row=0, column=0)
@@ -79,14 +104,6 @@ class LoginView:
         return_button = ttk.Button(
             master=self._frame,
             text="Palaa",
-            #command = self._logout
-            command=self._handle_start
+            command=self._show_start_view
         )
         return_button.grid(padx=5, pady=5, sticky=constants.EW)
-
-        # choice_button = ttk.Button(
-        #     master=self._frame,
-        #     text="Valintanäkymä",
-        #     command=self._handle_choice
-        # )
-        # choice_button.grid(padx=5, pady=5, sticky=constants.EW)

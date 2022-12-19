@@ -20,3 +20,5 @@ DB_FILE_PATH = os.path.join(directory, "..", "data", DB_FILE)
 
 TASK_KEYS = ("topic_id", "difficulty", "question",
              "correct", "wrong1", "wrong2", "wrong3", "task_id")
+
+DIFFICULTY_RANGE = list(range(1,11))
