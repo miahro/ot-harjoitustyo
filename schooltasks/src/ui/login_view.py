@@ -26,7 +26,6 @@ class LoginView:
             self._frame: TK-Inter widget
         """
         self._root = root
-        #self._handle_start = handle_start
         self._show_choice_view = show_choice_view
         self._show_start_view = show_start_view
         self._frame = None

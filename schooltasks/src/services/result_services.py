@@ -106,7 +106,6 @@ class ResultServices:
 
             fail[topic] = np.array(resultrepository.get_user_details_by_topic_fail(
                 person_id, topic_id)).reshape(-1, 2).T
-        print(all_results)
         return {'all': all_results, 'correct': correct, 'fail': fail}
 
     def delete_all(self):

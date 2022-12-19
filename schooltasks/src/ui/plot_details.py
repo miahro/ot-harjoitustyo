@@ -1,7 +1,6 @@
 """moduli sisältää plot_user_details - funktion"""
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
-#import numpy as np
 from config import DIFFICULTY_RANGE
 
 

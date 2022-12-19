@@ -74,7 +74,6 @@ class UI:
         self._hide_current_view()
         self._current_view = TaskView(
             self._root,
-            # self._handle_start,
             self._handle_choice
         )
 
@@ -109,7 +108,6 @@ class UI:
 
         self._current_view = LoginView(
             self._root,
-            #self._handle_choice,
             self._show_choice_view,
             self._show_start_view
         )
