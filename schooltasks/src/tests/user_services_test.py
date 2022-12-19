@@ -1,6 +1,5 @@
 """yksikkötestit UserServices luokalla"""
 import unittest
-from entities.user import User
 from repositories.user_repository import userrepository
 from services.user_services import userservices
 

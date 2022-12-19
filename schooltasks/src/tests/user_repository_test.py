@@ -1,7 +1,7 @@
 """yksikkötestit UserRepository luokalla"""
 import unittest
 from os.path import isfile
-from config import DB_FILE, DB_FILE_PATH
+from config import DB_FILE_PATH
 from dbcon import connection
 from entities.user import User
 from repositories.user_repository import userrepository

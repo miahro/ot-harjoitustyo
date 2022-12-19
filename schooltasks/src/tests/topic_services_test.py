@@ -2,19 +2,14 @@
 import unittest
 from os.path import isfile
 from config import DB_FILE, DB_FILE_PATH
-from dbcon import connection
-from entities.user import User
-#from repositories.user_repository import userrepository
 from repositories.topic_repository import topicrepository
 from services.topic_services import TopicServices, topicservices
-
 
 class TestTopicServices(unittest.TestCase):
     def setUp(self):
         self.topicservices = TopicServices()
         self.topicservices.delete_all()
         self.topicservices.update_topics_db()
-        # topicrepository.delete_all()
 
     def test_update_topics_db(self):
         self.topicservices.delete_all()

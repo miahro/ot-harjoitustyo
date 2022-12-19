@@ -1,13 +1,14 @@
 """yksikkötestit TaskServices luokalle"""
 import unittest
-from dbcon import connection
-#from repositories.task_repository import taskrepository
-from services.task_services import TaskServices, taskservices
+#from dbcon import connection
+from repositories.task_repository import taskrepository
+from services.task_services import TaskServices
 
 
 class TestTaskServices(unittest.TestCase):
     def setUp(self):
         self.taskservices = TaskServices()
+        taskrepository.delete_all()
         self.taskservices.update_tasks_db()
 
     def test_get_tasks(self):
