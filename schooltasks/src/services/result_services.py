@@ -62,7 +62,7 @@ class ResultServices:
         Args:
             user_id: käyttäjätunnus
             lista tuloksissa, lista sanakirjoja per aihe
-        Returns: 
+        Returns:
             tulokset listana aiheittain
         """
         topics = topicrepository.all_topics()
