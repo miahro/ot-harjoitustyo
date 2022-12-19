@@ -109,4 +109,6 @@ Kaikki aiheet yhteensä ja aiheittain näytetään:
 
 ![Result](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/kuvat/ohte_result.png)
 
-TÄTÄ NÄKYMÄÄ PARANNETAAN VIELÄ
+Lisäksi klikkaamalla "Näytä tulosten yksityiskohdat" avautuu erilliseen ikkunaan graafinen esitys oppilaan tuloksista tarkemmin.
+
+![ResultDetal]()
