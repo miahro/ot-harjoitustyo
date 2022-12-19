@@ -25,7 +25,7 @@ class TaskRepository:
         palauttaa tehtävät listana
 
         Returns:
-            tehtävät listana
+            tehtävät listana tupleja (1 rivi = 1 tuple)
         """
         if not self.check_file_path():
             return []
@@ -36,28 +36,20 @@ class TaskRepository:
             next(csv_reader)
             for line in csv_reader:
                 tasks.append(tuple(line))
-
-
-        # with open(TASKS_INPUT_PATH, 'r', encoding='utf-8') as file:
-        #     csv_reader = csv.reader(file, delimiter=';')
-        #     next(csv_reader)
-        #     for line in csv_reader:
-        #         tasks.append(line)
-
         return tasks
 
     def update_db(self, tasks):
         """lisää tieokantatauluun uudet aiheet
         Args:
-            tasks, lista tehtävistä muodossa [int, int, str, str, srt, str,str]
+            tasks, lista tehtävistä muodossa tuple(int, int, str, str, srt, str,str)
         """
+
         cursor = self._con.cursor()
         sql = """INSERT INTO
                 Tasks(topic_id, difficulty, question, correct, wrong1, wrong2, wrong3)
                 Values(?,?,?,?,?,?,?) ON CONFLICT DO NOTHING"""
-        for task in tasks:
-            cursor.execute(sql, task)
-            self._con.commit()
+        cursor.executemany(sql, tasks)
+        self._con.commit()
 
     def delete_all(self):
         """tuhoaa kaikki tehtävät tietokantataulusta"""
