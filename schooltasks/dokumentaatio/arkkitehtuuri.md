@@ -367,4 +367,14 @@ Piirrosteknisistä syistä luokkia UserServices ja TopicServices ei ole esitetty
 
 
 ### Tulosten tarkastelu 
-- lisätään
+
+Tulosten tarkastelynäkymä ui.results_view kutsuu sovelluslogiikan luokkia ResultServices sekä UserServices:
+- UserServices luokkaa käytetään ainoastaan kirjautuneen käyttäjän tunnistamiseen
+- ResultServices luokasta käytetään:
+    - user_totals: palauttaa sanakirjana käyttäjän kaikkien tehtävien tulosten yhteenvedon
+    - user_results_by_topic: palauttaa sanakirjana tulosten yhteenvedon aiheittain
+- käyttäjän tulosten yhteenveto (kaikki yhteensä ja aiheittain) näytetään taulukkomuodossa (ttk Treeview)
+
+Lisäksi tulosten tarkastelunäkymässä on valintapainike "Näytä tulosten yksityiskohdat": tämä kutsuu modulin plot_details.py funktiota plot_details(). Plot_details:
+- kutsuu luokan ResultServices metodia user_details, joka palauttaa sanakirjana käyttäjän tulosten yksityiskohdat (sanakirjana aiheittain, ***KESKEN***
+- plot_details on toteutettu käyttäen 
