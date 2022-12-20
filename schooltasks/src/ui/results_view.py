@@ -71,8 +71,8 @@ class ResultView:
     def _plot_details(self):
         """Näyttää aktiivisen käyttäjän tulokset
         erillisessä ikkunassa"""
-        user=userservices.active_user_details()
-        details=resultservices.user_details(user_id=user['user_id'])
+        user = userservices.active_user_details()
+        details = resultservices.user_details(user_id=user['user_id'])
         plot_user_details(user=user, details=details)
 
     def _initialize(self):
@@ -85,15 +85,12 @@ class ResultView:
 
         self._totals()
 
-
         details_button = ttk.Button(
             master=self._frame,
             text="Näytä tulosten yksityiskohdat",
             command=self._plot_details
         )
         details_button.grid(padx=5, pady=5, sticky=constants.EW)
-
-
 
         back_button = ttk.Button(
             master=self._frame,

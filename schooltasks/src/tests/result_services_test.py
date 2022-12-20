@@ -6,9 +6,10 @@ from repositories.topic_repository import topicrepository
 from services.task_services import taskservices
 from services.result_services import ResultServices
 
+
 class TestResultServices(unittest.TestCase):
     def setUp(self):
-       
+
         taskservices.update_tasks_db()
         self.resultservices = ResultServices()
         self.resultservices.delete_all()
@@ -50,17 +51,20 @@ class TestResultServices(unittest.TestCase):
         self.resultservices.add_result("testitunnus", 4, True)
         result = self.resultservices.user_details("testitunnus")
         self.assertEqual(list(result.keys()), ['all', 'correct', 'fail'])
-        self.assertEqual(list(result['all'].keys()), ['yhteenlasku', 'vähennyslasku', 'kertolasku', 'jakolasku'])
-        self.assertEqual(list(result['correct'].keys()), ['yhteenlasku', 'vähennyslasku', 'kertolasku', 'jakolasku'])
-        self.assertEqual(list(result['fail'].keys()), ['yhteenlasku', 'vähennyslasku', 'kertolasku', 'jakolasku'])
-
+        self.assertEqual(list(result['all'].keys()), [
+                         'yhteenlasku', 'vähennyslasku', 'kertolasku', 'jakolasku'])
+        self.assertEqual(list(result['correct'].keys()), [
+                         'yhteenlasku', 'vähennyslasku', 'kertolasku', 'jakolasku'])
+        self.assertEqual(list(result['fail'].keys()), [
+                         'yhteenlasku', 'vähennyslasku', 'kertolasku', 'jakolasku'])
 
     def test_user_results_by_topic(self):
         self.resultservices.add_result("testitunnus", 1, False)
         self.resultservices.add_result("testitunnus", 2, False)
         self.resultservices.add_result("testitunnus", 3, True)
         self.resultservices.add_result("testitunnus", 4, True)
-        result = self.resultservices.user_results_by_topic("testitunnus", "yhteenlasku")
+        result = self.resultservices.user_results_by_topic(
+            "testitunnus", "yhteenlasku")
         if result:
             self.assertEqual(result['topic'], 'yhteenlasku')
             self.assertEqual(result['correct'], 2)
@@ -72,7 +76,8 @@ class TestResultServices(unittest.TestCase):
         self.resultservices.add_result("testitunnus", 2, False)
         self.resultservices.add_result("testitunnus", 3, True)
         self.resultservices.add_result("testitunnus", 4, True)
-        result = self.resultservices.user_results_by_topic_all_topics("testitunnus")
+        result = self.resultservices.user_results_by_topic_all_topics(
+            "testitunnus")
         self.assertEqual(result[0]['topic'], 'yhteenlasku')
         self.assertEqual(result[0]['correct'], 2)
         self.assertEqual(result[0]['fail'], 2)

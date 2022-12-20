@@ -5,6 +5,7 @@ from repositories.result_repository import resultrepository
 from repositories.user_repository import userrepository
 from repositories.topic_repository import topicrepository
 
+
 class ResultServices:
     """luokka tulosten palveluille"""
 
@@ -102,7 +103,6 @@ class ResultServices:
 
             correct[topic] = np.array(resultrepository.get_user_details_by_topic_correct(
                 person_id, topic_id)).reshape(-1, 2).T
-
 
             fail[topic] = np.array(resultrepository.get_user_details_by_topic_fail(
                 person_id, topic_id)).reshape(-1, 2).T

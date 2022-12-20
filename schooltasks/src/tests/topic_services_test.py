@@ -5,6 +5,7 @@ from config import DB_FILE, DB_FILE_PATH
 from repositories.topic_repository import topicrepository
 from services.topic_services import TopicServices, topicservices
 
+
 class TestTopicServices(unittest.TestCase):
     def setUp(self):
         self.topicservices = TopicServices()

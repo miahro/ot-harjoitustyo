@@ -5,6 +5,7 @@ from config import DB_FILE_PATH
 from dbcon import connection
 from repositories.topic_repository import topicrepository
 
+
 class TestTopicRepository(unittest.TestCase):
     def setUp(self):
         topicrepository.delete_all()

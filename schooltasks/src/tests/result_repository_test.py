@@ -5,9 +5,10 @@ from dbcon import connection
 from question_generator import QuestionGenerator
 from config import TASKS_INPUT_PATH
 from repositories.result_repository import ResultRepository
-from repositories.user_repository import  UserRepository
+from repositories.user_repository import UserRepository
 from repositories.topic_repository import TopicRepository
 from entities.user import User
+
 
 class TestResultRepository(unittest.TestCase):
     def setUp(self):
@@ -18,17 +19,17 @@ class TestResultRepository(unittest.TestCase):
 
         testuser = User({"first_name": "Tero",
                         "last_name": "Testi",
-                        "user_id": "tt1",
-                        "passwd": "sala",
-                        "teacher": False})
+                         "user_id": "tt1",
+                         "passwd": "sala",
+                         "teacher": False})
         self.userrepository = UserRepository()
         self.userrepository.add_user(testuser)
         self.person_id = self.userrepository.get_pk_id("tt1")[0]
 
         self.topicrepository = TopicRepository()
-        topics = [("yhteenlasku",), ("vähennyslasku",), ("kertolasku", ), ("jakolasku",)]
+        topics = [("yhteenlasku",), ("vähennyslasku",),
+                  ("kertolasku", ), ("jakolasku",)]
         self.topicrepository.update_db(topics)
-
 
         self.resultrepository = ResultRepository()
         self.resultrepository.delete_all()

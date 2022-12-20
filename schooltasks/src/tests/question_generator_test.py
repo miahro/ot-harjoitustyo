@@ -25,7 +25,6 @@ class TestQuestionGenerator(unittest.TestCase):
         self.assertTrue(final_line_list[5].isdigit())
         self.assertTrue(final_line_list[6].strip().isdigit())
 
-
     def test_subtraction(self):
         self.test_question_generator.subtraction()
         with open(self.test_question_generator.filepath, 'r', encoding='utf-8') as test:
@@ -39,7 +38,6 @@ class TestQuestionGenerator(unittest.TestCase):
         self.assertTrue(final_line_list[5].lstrip('-').isdigit())
         self.assertTrue(final_line_list[6].strip().lstrip('-').isdigit())
 
-
     def test_multiplication(self):
         self.test_question_generator.multiplication()
         with open(self.test_question_generator.filepath, 'r', encoding='utf-8') as test:
@@ -52,8 +50,6 @@ class TestQuestionGenerator(unittest.TestCase):
         self.assertTrue(final_line_list[4].isdigit())
         self.assertTrue(final_line_list[5].isdigit())
         self.assertTrue(final_line_list[6].strip().isdigit())
-
-
 
     def test_division(self):
         self.test_question_generator.division()

@@ -51,7 +51,7 @@ class TestTaskRepository(unittest.TestCase):
             taskrepository.update_db(task2)
             taskrepository.update_db(task3)
             taskrepository.update_db(task4)
-       
+
         result = taskrepository.get_random_task_list(1, 1, 5)
         self.assertEqual(len(result), 5)
         self.assertEqual(result[0].topic_id, 1)
