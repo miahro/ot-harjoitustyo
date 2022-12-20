@@ -19,7 +19,7 @@ class ResultServices:
             task_id: tehtävän pkid
             result: boolean (oikein, väärin) """
         person_id = userrepository.get_pk_id(
-            user_id)[0]  # vaatii poikkeuskäsittelyn
+            user_id)[0]  
         resultrepository.add_result(person_id, task_id, result)
 
     def user_totals(self, user_id):
@@ -30,7 +30,7 @@ class ResultServices:
             tulosten yhteenveto sanakirjana
         """
         person_id = userrepository.get_pk_id(
-            user_id)[0]  # vaatii poikkeuskäsittelyn
+            user_id)[0]  
         correct = resultrepository.get_user_total_correct(person_id)[0]
         fail = resultrepository.get_user_total_fail(person_id)[0]
         return {"correct": correct, "fail": fail, "total_tasks": correct+fail,
@@ -47,7 +47,7 @@ class ResultServices:
             Tulokset sanakirjana
         """
         person_id = userrepository.get_pk_id(
-            user_id)[0]  # vaatii poikkeuskäsittelyn
+            user_id)[0]  
         topic_id = topicrepository.id_by_topic(topic)
         correct = resultrepository.get_user_correct_by_topic(person_id, topic_id)[
             0][0]
