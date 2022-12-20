@@ -376,5 +376,9 @@ Tulosten tarkastelynäkymä ui.results_view kutsuu sovelluslogiikan luokkia Resu
 - käyttäjän tulosten yhteenveto (kaikki yhteensä ja aiheittain) näytetään taulukkomuodossa (ttk Treeview)
 
 Lisäksi tulosten tarkastelunäkymässä on valintapainike "Näytä tulosten yksityiskohdat": tämä kutsuu modulin plot_details.py funktiota plot_details(). Plot_details:
-- kutsuu luokan ResultServices metodia user_details, joka palauttaa sanakirjana käyttäjän tulosten yksityiskohdat (sanakirjana aiheittain, ***KESKEN***
-- plot_details on toteutettu käyttäen 
+- kutsuu luokan ResultServices metodia user_details, joka palauttaa sanakirjana käyttäjän tulosten yksityiskohdat (sanakirjana kaikki/oikeat/väärät, sanakirjoja aiheittan, tulokset numpy.arrayna)
+- plot_details avaa tulosten yksityikohtien graafisen esityksen erilliseen ikkunaan
+- plot_details on toteutettu käyttäen matplotlib-kirjastoa
+- tulokset esitetään aiheittan:
+    - piirakkakuvaajana vastauksia yhteensä per vaikeustaso
+    - pylväskuvaajana oikeita ja vääriä per vaikeustaso
