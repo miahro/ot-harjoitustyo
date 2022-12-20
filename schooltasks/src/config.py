@@ -1,7 +1,7 @@
 """konfigurointimoduuli asettaa tiedostopolut
 tiedostojen nimet luetaan .env tiedostosta"""
 import os
-from dotenv import load_dotenv  # pylint: disable=import-error
+from dotenv import load_dotenv
 
 directory = os.path.dirname(__file__)
 
@@ -21,4 +21,4 @@ DB_FILE_PATH = os.path.join(directory, "..", "data", DB_FILE)
 TASK_KEYS = ("topic_id", "difficulty", "question",
              "correct", "wrong1", "wrong2", "wrong3", "task_id")
 
-DIFFICULTY_RANGE = list(range(1,11))
+DIFFICULTY_RANGE = list(range(1, 11))
