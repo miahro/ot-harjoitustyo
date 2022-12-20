@@ -31,7 +31,7 @@ Järjestelmätestausta on tehty manuaalisesti.
 
 Asennuksen ja konfiguroinnin toimivuus on testattu fuksi-läppärin Cubbli-linux ympäristössä, sekä laitoksen virtuaalikoneella. Asennus ja konfiguraatiotestauksessa on suoritettu [README](https://github.com/miahro/ot-harjoitustyo/blob/master/README.md) ohjeistamat asennustoimet, sekä käynnistäminen ja muut komentorivitoiminnot. 
 
-### Toiminnalisuudet
+### Toiminnallisuudet
 
 Ohjelman toiminnallisuuksia on testattu manuaalisesti sekä käyttämällä ohjelmaa kuten tarkoitettu että tekemällä tarkoituksella virhetilanteita. Muunmuassa seuraavia virhetilanteita on tehty tarkoituksella:
 - luodaan uusi käyttäjä epäkelvoilla syötteillä (tyhjiä kentti, salasana ja salasana uudestaan eroavat, yritetään luoda olemassaoleva käyttäjätunnus uudestaan)

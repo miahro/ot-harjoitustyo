@@ -1,5 +1,17 @@
 # Käyttöohje
 
+## Ohjelman tarkoitus
+
+Ohjelma on tarkoitettu alakoululaisten (7-12v) matematiikan tehtävien harjoitteluun. Ohjelmassa voidaan:
+- luoda käyttäjätunnus ja kirjautua tunnuksella sisään
+- valita aihe (yhteenlasku, vähennyslasku, kertolasku, jakolasku)
+- vaikeustaso 1-10
+- tehdä tehtäviä 10:n kysymyksen sarjoissa:
+    - kuhunkin tehtävään liityy kysymys, ja neljä vastausvaihtoehtoa
+    - vastausvaihtoehdoista on yksi oikein ja kolme väärin
+- ohjelma pitää kirjaa käyttäjän tuloksista
+- tuloksia voidaan tarkistella yhteenvetotaulukkona tai yksityiskohtaisemmin graafisesti
+
 ## Asennus ja konfigurointi 
 
 1. asenna riippuvuudet 

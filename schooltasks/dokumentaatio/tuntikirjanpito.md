@@ -19,7 +19,11 @@
 |6 |11.12.| 3    |Testikattavuuden parantamista, virheiden korjausta|
 |6 |12.12.| 8    |Yritetty toteuttaa tulosten graafinen esitys matplotlib ulkoisella kirjastolla, tämä jäi viellä kesken. Docstringien lisäystä, testien lisäystä, services ja repositories luokkien laajennusta, käyttöliittymän parantelua|
 |6 |13.12.| 8    | Käyttöohjeen laatiminen, arkkitehtuurikuvauksen laajentaminen, koodin siistimistä, testausta, muun dokumentaation päivitys|
-
+|7 |14.12.| 4    | Matplotlibin opettelu|
+|7 |15.12.| 4    | Graafisen tulosten esittämisen toteutus|
+|7 |16.12.| 4    | Yleistä koodin korjausta, docstringien parantamista, manuaalista testausta|
+|7 |19.12.| 6    | Testikattavuuden parantaminen, tiedostojen käsittelyn järkeistäminen|
+|7 |20.12.| x    | Dokumentointia, manuaalista testausta|
 
 
 **Yhteensä**
