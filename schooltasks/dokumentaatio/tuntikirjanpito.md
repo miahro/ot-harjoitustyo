@@ -23,7 +23,7 @@
 |7 |15.12.| 4    | Graafisen tulosten esittämisen toteutus|
 |7 |16.12.| 4    | Yleistä koodin korjausta, docstringien parantamista, manuaalista testausta|
 |7 |19.12.| 6    | Testikattavuuden parantaminen, tiedostojen käsittelyn järkeistäminen|
-|7 |20.12.| x    | Dokumentointia, manuaalista testausta|
+|7 |20.12.| x    | Dokumentointia: arkkitehtuuri, testaus, vaatimusmäärittely, manuaalista testausta|
 
 
 **Yhteensä**
@@ -34,6 +34,7 @@
 | 4   | 24   | 
 | 5   | 24   | 
 | 6   | 19   | 
+| 7   | X   | 
 | yht | 99 |
 
 

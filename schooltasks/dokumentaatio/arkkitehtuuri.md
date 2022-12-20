@@ -382,3 +382,13 @@ Lisäksi tulosten tarkastelunäkymässä on valintapainike "Näytä tulosten yks
 - tulokset esitetään aiheittan:
     - piirakkakuvaajana vastauksia yhteensä per vaikeustaso
     - pylväskuvaajana oikeita ja vääriä per vaikeustaso
+
+## Ohjelman rakenteeseen jääneet puutteet ja heikkoudet
+
+Alkuperäisestä vaatimusmäärittelystä poiketen opettajan toimintoja ei ole toteutettu:
+- nämä jätetty ajanpuutteen vuoksi toteuttamatta
+- opettajan toiminnot olisivat lähinnä kaikkien oppilaiden tulosten tarkastelua. Sinänsä nämä olisivat kohtalaisen helppoja ja suoraviivaisia toteuttaa, tarvittava tieto tietokannassa, edellytäisi vain vähän eri logiikalla toimivia tietokantakyselyitä sekä erillisen opettajan tulostentarkastelunäkymän
+
+Käyttöliittymä on hieman kömpelö ja koodissa on toistoa. 
+
+QuestionGenerator logiikka luoda tehtäviä ei ole kovin hyvä, tehtävien vaikeustaso ei välttämättä aina vastaa ilmoitettua. Tämän voisi toteuttaa paremmin. 
