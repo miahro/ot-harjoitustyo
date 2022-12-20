@@ -1,15 +1,14 @@
 # Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
-Kyseessä on alakoululaisten (8-12v) matematiikan koulutehtävien harjoitteluun tarkoitettu sovellus. Tehtävät ovat monivalintatehtäviä, joissa kysymykseen vastataan valitsemalla oikea vastausvaihtoehto. 
+Kyseessä on alakoululaisten (7-12v) matematiikan koulutehtävien harjoitteluun tarkoitettu sovellus. Tehtävät ovat monivalintatehtäviä, joissa kysymykseen vastataan valitsemalla oikea vastausvaihtoehto. 
 
 ## Käyttäjät
-Sovelluksessa on kahdenlaisia käyttäjiä:
-- oppilaita
-- opettaja
+Sovelluksen käyttäjät ovat oppilaite
+
 
 ## Käyttöliittymä
-Alusva luonnos käyttäliittymäksi alla. Tämä kuvaa oppilas käyttäjän perustoimintoja:
+Käyttöliittymän periaatekuva alla.
 
 ![UI](https://github.com/miahro/ot-harjoitustyo/blob/master/schooltasks/dokumentaatio/kuvat/UIdraft.jpg)
 
@@ -17,32 +16,41 @@ Alusva luonnos käyttäliittymäksi alla. Tämä kuvaa oppilas käyttäjän peru
 ## Toiminnallisuus
 
 ### Käyttäjähallinta
-- oppilaat voivat itse luoda käyttäjätunnuksia sekä niihin liittyviä salasanoja. "tehty"
-- opettajan tunnus ja salasana luodaan ensimmäisen käynnistyksen yhteydessä
+- oppilaat voivat itse luoda käyttäjätunnuksia sekä niihin liittyviä salasanoja. 
+- oppilaat voivat kirjautua sisään
 
 
 ### Tehtvävien ylläpito
-Opettaja-roolissa oleva käyttäjä voi ylläpitää tehtävälistoja. Alustavasassa versiossa tehtävälistat syötetään ulkoisena .csv-tiedostona. 
+Tehtävät syötetään ohjelman tietokannalle .csv-tiedostona. Tehtävätiedosto voidaan täyttää manuaalisesti tai käyttää "generate_questions" apuohjelmaa, joka generoi tehväviä (2200 kpl) automaattisesti. 
 
 Tehtävillä on:
-- aihe (esim. kertotaulut, yhteenlasku, vähennyslasku, jne) "tehty"
-- vaikeustaso  "tehty"
-- oikea vastausvaihetoehto sekä kolme väärää vastaustavaihtoehtoa "tehty"
+- aihe
+    - toteutetut aiheet: yhteenlasku, vähennyslasku, kertolasku, jakolasku
+    - aiheita voi laajentaa
+- vaikeustaso 1-10
+- oikea vastausvaihetoehto sekä kolme väärää vastaustavaihtoehtoa
 
 ### Tehtävien teko
-Oppilaat tekevät tehtäviä. Alustavasti oppilas valitsee aiheen ja vaikeustason, ja saa 10 tehtävää suoritettavaksi. Tehtävät ovat monivalintatyyppisiä (vaihtoehdot a-d). "tehty"
+Oppilaat tekevät tehtäviä. Oppilas voi valita:
+- aiheen
+- vaikeustason
+ 
+Oppilas saa tehtäviä suoritettavaksi 10 kappaleen sarjoissa. Tehtävät ovat monivalintatyyppisiä (vaihtoehdot a-d, sis. yksi oikea ja kolme väärää vaihtoehtoa). 
 
 ### Tulosten seuranta
 - oppilaan tekemistä tehtävisä pidetään kirjaa:
-    - aihe "tehty"
-    - oikeat / väärät vastaukset "tehty"
-    - vaikeustaso "tehty"
-- oppilas voi tarkistaa omat tuloksensa "tehty"
-- opettaja voi tarkista kaikkien oppilaiden tulokset
+    - aiheittain
+    - vaikeustasoittain
+    - oikeat / väärät vastaukset
+- oppilas voi tarkistaa omat tuloksensa:
+    - yhteenvetona taulukkomuodossa (kaikki tehtävät yhteensä, oikeita, vääriä, oikein-%), taulukossa myös aiheittain tehtäviä yhteensä, oikeita, vääriä, oikein-%
+    - graafisena esityksenä aiheittain yksityiskohtaisemmin (per aihe, per vaikeustaso, oikeita ja vääriä kullekin)
+
 
 ## Mahdollinen jatkokehitys
-- tehtävien automaattinen generointi "tehty"
+- tehtävien automaattinen generointi voisi olla parempi
 - säädettävä aikaraja (lisävaikeustaso) tehtäville
-- laajennetaan tulosten tilastointinäkymiä
+- laajennetaan tulosten esittämistä
 - mahdollisesti muiden aiheiden kuin matematiikan tehtävien lisäys
+- opettajan toiminnallisuudet (kaikkien oppilaiden tulosten katsominen)
 
